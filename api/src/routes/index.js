@@ -1,5 +1,5 @@
 const { Router } = require("express");
-
+/* var router = express.Router() */
 // Controllers
 const recipe = require("../controllers/recipe");
 const recipes = require("../controllers/recipes");
@@ -14,11 +14,12 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 
 // Crear en nuestra BD una receta
-//router.get("/recipe", recipe);
+router.post("/recipe", recipe.addRecipe);
 
 // Obtener 9 recetas
-router.get("/recipes", recipes.getRecipesByName)
-router.get("/recipes/:id", recipes.getRecipeDetail)
+router.get("/recipes", recipes.getRecipesByName);
+router.get("/recipes/:id", recipes.getRecipeDetail);
+
 // Obtener tipos de dietas
 //router.get("/types", diet);
 
