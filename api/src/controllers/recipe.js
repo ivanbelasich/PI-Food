@@ -1,4 +1,5 @@
-const { Recipe } = require("../db");
+const { Recipe, Diet } = require("../db");
+const { Op } = require("sequelize");
 
 const addRecipe = async (req, res) => {
   try {
@@ -6,28 +7,30 @@ const addRecipe = async (req, res) => {
       title,
       summary,
       spoonacularScore,
+      dishTypes,
       healthScore,
       instructions,
       image,
+      diets,
     } = req.body;
-    const project = await Recipe.findOne({ where: { title: title } });
-    if (project) {
-      res
-        .status(201)
-        .json({ message: "There's already a recipe with that name" });
-    } else {
-      const recipeCreated = await Recipe.create({
-        title,
+    const [recipe, created] = await Recipe.findOrCreate({
+      where: { title },
+      defaults: {
         summary,
         spoonacularScore,
+        dishTypes,
         healthScore,
         instructions,
         image,
-      });
-      res.send(recipeCreated);
-    }
+      },
+    });
+    const dietas = await Diet.findAll({
+      where: { title: { [Op.in]: diets } },
+    });
+    await recipe.addDiet(dietas);
+    res.json(created ? { recipe } : { message: "The recipe already exists" });
   } catch {
-    res.status(404).json({ message: "Error al agregar receta" });
+    res.status(404).json({ message: "No funca" });
   }
 };
 

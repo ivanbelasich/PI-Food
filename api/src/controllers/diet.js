@@ -1,16 +1,12 @@
 const { Diet } = require("../db");
 
-const addDiet = async (req, res) => {
+const addDiets = async (req, res) => {
   try {
-    const { id, title } = req.body;
-    const recipeCreated = await Recipe.create({
-      id,
-      title,
-    });
-    res.send(recipeCreated);
+    const dietCreated = await Diet.bulkCreate(req.body);
+    res.send(dietCreated);
   } catch {
-    res.status(404).json({ message: "Error al agregar dieta" });
+    res.status(404).json({ message: "Diets could not be added" });
   }
 };
 
-module.exports = { addDiet };
+module.exports = { addDiets };

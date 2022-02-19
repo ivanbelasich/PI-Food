@@ -14,11 +14,14 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     summary: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     spoonacularScore: {
       type: DataTypes.DECIMAL,
+    },
+    dishTypes: {
+      type: DataTypes.ARRAY(DataTypes.TEXT),
     },
     healthScore: {
       type: DataTypes.DECIMAL,
@@ -27,7 +30,7 @@ module.exports = (sequelize) => {
       type: DataTypes.TEXT,
     },
     image: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
   });
 };
