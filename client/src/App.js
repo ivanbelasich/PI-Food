@@ -1,10 +1,13 @@
-import './App.css';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import Cards from "./components/Cards";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Henry Food</h1>
-    </div>
+    <Routes>
+      <Route exact path="/" element={<Cards />} />
+    </Routes>
   );
 }
 
