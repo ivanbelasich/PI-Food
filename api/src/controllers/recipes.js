@@ -26,6 +26,7 @@ const getRecipesByName = async (req, res) => {
             image: el.image,
             title: el.title,
             diets: el.diets,
+            id: el.id,
           };
         })
         .concat(
@@ -34,6 +35,7 @@ const getRecipesByName = async (req, res) => {
               image: el.image,
               title: el.title,
               diets: el.diets.map((el) => el.title),
+              id: el.id,
             };
           })
         );
@@ -50,7 +52,8 @@ const getRecipesByName = async (req, res) => {
           return {
             image: el.image,
             title: el.title,
-            diets: el.diets + ""
+            diets: el.diets + "",
+            id: el.id,
           };
         })
         .concat(
@@ -59,6 +62,7 @@ const getRecipesByName = async (req, res) => {
               image: el.image,
               title: el.title,
               diets: el.diets.map((el) => el.title),
+              id: el.id,
             };
           })
         );
@@ -96,10 +100,14 @@ const getRecipeDetail = async (req, res) => {
         title: detailData.data.title,
         dishTypes: detailData.data.dishTypes,
         diets: detailData.data.diets,
-        summary: detailData.data.summary,
+        summary:
+          detailData.data.summary &&
+          detailData.data.summary.replace(/<[^>]+>/g, ""),
         score: detailData.data.spoonacularScore,
         healthScore: detailData.data.healthScore,
-        instructions: detailData.data.instructions,
+        instructions:
+          detailData.data.instructions &&
+          detailData.data.instructions.replace(/<[^>]+>/g, ""),
       };
       return res.json(detailApi);
     }
