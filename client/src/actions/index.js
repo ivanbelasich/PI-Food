@@ -53,9 +53,9 @@ export function getRecipesByName(title) {
   return async (dispatch) => {
     try {
       const getRecipeName = await axios.get(
-        `${LOCALHOST_URL}/recipe/&query=${title}`
+        `${LOCALHOST_URL}/recipes?name=${title}`
       );
-      return dispatch({
+      dispatch({
         type: GET_RECIPE_BY_NAME,
         payload: getRecipeName.data,
       });

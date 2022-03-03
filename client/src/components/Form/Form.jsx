@@ -4,11 +4,12 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDiets } from "../../actions";
+import { dishTypesData } from "../../constants";
 
 export const Form = () => {
   const [data, setData] = useState({
     title: "",
-    dishTypes: "",
+    dishTypes: [],
     image: "",
     summary: "",
     score: "",
@@ -17,16 +18,16 @@ export const Form = () => {
     diets: [],
   });
 
-  const dispatch = useDispatch();
-
   const diets = useSelector((state) => state.diets);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getDiets());
-  }, []);
+  }, [dispatch]);
 
   function handleChange(e) {
-    if (e.target.id === "diets") {
+    if (e.target.id === "diets" || e.target.id === "dishTypes") {
       setData((data) => ({
         ...data,
         [e.target.id]: [...data.diets, e.target.value],
@@ -44,7 +45,7 @@ export const Form = () => {
     try {
       const datita = await axios.post("http://localhost:3001/recipe", {
         title: data.title,
-        /*  dishTypes: data.dishTypes, */
+        dishTypes: data.dishTypes,
         image: data.image,
         summary: data.summary,
         spoonacularScore: data.score,
@@ -68,11 +69,11 @@ export const Form = () => {
         ></input>
       </div>
       <div>
-        <input
-          onChange={(e) => handleChange(e)}
-          id="dishTypes"
-          placeholder="Dish types"
-        ></input>
+        <select onChange={(e) => handleChange(e)} id="dishTypes" multiple>
+          {dishTypesData.map((el) => (
+            <option key={el}>{el}</option>
+          ))}
+        </select>
       </div>
       <div>
         <input
