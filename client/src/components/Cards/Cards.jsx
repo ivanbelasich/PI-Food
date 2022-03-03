@@ -1,8 +1,8 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getRecipes } from "../actions";
-import Card from "./Card";
+import { getRecipes } from "../../actions/index";
+import Card from "../Card/Card";
 
 export default function Cards() {
   const recipes = useSelector((state) => state.recipes);
@@ -12,13 +12,11 @@ export default function Cards() {
     dispatch(getRecipes());
   }, [dispatch]);
 
-  console.log(recipes, "esto es reicpes");
-
   return (
     <div>
-      {recipes.map((el) => (
-        <Card title={el.title} image={el.image} diets={el.diets} />
-      ))}
+      {recipes ? recipes.map((el) => (
+        <Card key={el.id} title={el.title} image={el.image} diets={el.diets} id={el.id} />
+      )): <p>Cargando...</p>}
     </div>
   );
 }
