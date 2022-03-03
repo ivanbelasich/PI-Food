@@ -13,4 +13,13 @@ const addDiets = async (req, res) => {
   }
 };
 
-module.exports = { addDiets };
+const getDiets = async (req, res) => {
+  try {
+    const findDiet = await Diet.findAll();
+    res.send(findDiet);
+  } catch {
+    res.status(404).json({ message: "Cant find diets" });
+  }
+};
+
+module.exports = { addDiets, getDiets };

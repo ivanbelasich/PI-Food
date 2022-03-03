@@ -21,7 +21,7 @@ router.get("/recipes", recipes.getRecipesByName);
 router.get("/recipes/:id", recipes.getRecipeDetail);
 
 // Obtener tipos de dietas
-//router.get("/types", diet);
+router.get("/types", diet.getDiets);
 router.post("/types", diet.addDiets);
 
 module.exports = router;
