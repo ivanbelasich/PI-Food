@@ -4,8 +4,9 @@ export const GET_RECIPES = "GET_RECIPES";
 export const GET_RECIPES_DETAIL = "GET_RECIPES_DETAIL";
 export const GET_RECIPE_BY_NAME = "GET_RECIPE_BY_NAME";
 export const ADD_RECIPE = "ADD_RECIPE";
-export const RESET_DETAIL = "RESET_MOVIE_DETAIL";
+export const RESET_DETAIL = "RESET_DETAIL";
 export const GET_DIETS = "GET_DIETS";
+export const RESET_SEARCH = "RESET_SEARCH";
 
 export function getRecipes() {
   return async (dispatch) => {
@@ -67,6 +68,10 @@ export function getRecipesByName(title) {
 
 export function resetDetail() {
   return { type: RESET_DETAIL };
+}
+
+export function resetSeach() {
+  return { type: RESET_SEARCH };
 }
 
 export function getDiets() {

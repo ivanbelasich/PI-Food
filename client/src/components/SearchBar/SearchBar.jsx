@@ -1,7 +1,6 @@
-import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getRecipesByName } from "../../actions";
+import { getRecipes, getRecipesByName } from "../../actions";
 
 export default function SearchBar() {
   const [data, setData] = useState();
@@ -10,12 +9,16 @@ export default function SearchBar() {
     setData((data) => (data = e.target.value));
   }
 
+  const dispatch = useDispatch();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (data) dispatch(getRecipesByName(data));
+    if (data) {
+      dispatch(getRecipesByName(data));
+    } else {
+      dispatch(getRecipes());
+    }
   };
-
-  const dispatch = useDispatch();
 
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
