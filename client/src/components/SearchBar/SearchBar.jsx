@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getRecipes, getRecipesByName } from "../../actions";
+import { getRecipes, getRecipesByName } from "../../redux/actions";
 
 export default function SearchBar() {
   const [data, setData] = useState();

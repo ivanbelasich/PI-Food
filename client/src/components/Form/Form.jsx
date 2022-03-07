@@ -3,8 +3,8 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getDiets } from "../../actions";
-import { dishTypesData } from "../../constants";
+import { getDiets } from "../../redux/actions";
+import { dishTypesData } from "../../redux/constants";
 
 export const Form = () => {
   const [data, setData] = useState({

@@ -1,0 +1,45 @@
+/* <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet"> */
+
+.root-navbar {
+}
+
+.head-navbar {
+}
+
+.menu-navbar {
+  background-color: rgba(255, 238, 81, 0.774);
+  height: 75px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid white;
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.body-navbar {
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.logo-navbar {
+    color: rgba(19, 15, 15, 0.801);
+    font-size: 35px;
+    padding: 0 40px;
+    font-weight: bold;
+}
+
+.navlink-navbar {
+    list-style: none;
+    display: flex;
+}
+
+.navlink-navbar li {
+    border-radius: 3px;
+    margin: 0 5px;
+}
+
+.active-navbar {
+  background-color: red;
+  margin-right: 30px;
+}

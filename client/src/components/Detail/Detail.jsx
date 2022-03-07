@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getRecipesDetail, resetDetail } from "../../actions/index";
+import { getRecipesDetail, resetDetail } from "../../redux/actions";
 
 export const Detail = () => {
   const recipeDetail = useSelector((state) => state.recipeDetail);

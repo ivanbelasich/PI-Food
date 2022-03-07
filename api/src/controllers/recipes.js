@@ -6,7 +6,7 @@ const {
   BASE_URL_DETAILED,
   DETAIL_URL,
 } = require("../resources/index");
-const { API_KEY} = process.env;
+const { API_KEY3} = process.env;
 require("dotenv").config();
 
 const getRecipesByName = async (req, res) => {
@@ -14,7 +14,7 @@ const getRecipesByName = async (req, res) => {
   try {
     if (name) {
       const dataApiName = await axios.get(
-        `${BASE_URL}?apiKey=${API_KEY}${BASE_URL_DETAILED}&query=${name}&number=100`
+        `${BASE_URL}?apiKey=${API_KEY3}${BASE_URL_DETAILED}&query=${name}&number=100`
       );
       const dataDB = await Recipe.findAll({
         where: { title: { [Op.iLike]: `%${name}%` } },
@@ -42,7 +42,7 @@ const getRecipesByName = async (req, res) => {
       return res.json(dataNameFilt);
     } else {
       const dataApi = await axios.get(
-        `${BASE_URL}?apiKey=${API_KEY}${BASE_URL_DETAILED}&number=100`
+        `${BASE_URL}?apiKey=${API_KEY3}${BASE_URL_DETAILED}&number=100`
       );
       const dataDB = await Recipe.findAll({
         include: [Diet],
@@ -93,7 +93,7 @@ const getRecipeDetail = async (req, res) => {
       return res.json(detailDBMap);
     } else {
       const detailData = await axios.get(
-        `${DETAIL_URL}/${id}/information?apiKey=${API_KEY1}`
+        `${DETAIL_URL}/${id}/information?apiKey=${API_KEY3}`
       );
       const detailApi = {
         image: detailData.data.image,
