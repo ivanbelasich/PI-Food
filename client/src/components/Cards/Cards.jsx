@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getRecipes } from "../../redux/actions/index";
-import { Paginate } from "../Paginate/Paginate";
+import ReactPaginate from "react-paginate";
+import Card from "../Card/Card";
 
 export default function Cards() {
   const dispatch = useDispatch();
@@ -13,43 +13,50 @@ export default function Cards() {
 
   const recipes = useSelector((state) => state.recipes);
 
-  const ITEMS_PER_PAGE = 12;
+  const [pageNumber, setPageNumber] = useState(0);
 
-  const [datosFromApi, setDatosFromApi] = useState(recipes);
+  const currentPosts = recipes.slice(0, 130);
+  const usersPerPage = 8;
+  const pagesVisited = pageNumber * usersPerPage;
 
-  const [items, setItems] = useState([...recipes].splice(0, ITEMS_PER_PAGE));
+  const displayUsers = currentPosts
+    .slice(pagesVisited, pagesVisited + usersPerPage)
+    .map((el) => {
+      return (
+        <>
+          <Card
+            key={el.id}
+            title={el.title}
+            image={el.image}
+            diets={el.diets}
+            id={el.id}
+          />
+        </>
+      );
+    });
 
-  const [currentPage, setCurrentPage] = useState(1);
+  const pageCount = Math.ceil(currentPosts.length / usersPerPage);
 
-  const nextHandler = () => {
-    const totalElements = datosFromApi.length;
-
-    const nextPage = currentPage + 1;
-
-    const firstIndex = nextPage * ITEMS_PER_PAGE;
-
-    if (firstIndex === totalElements) return;
-    setItems([...datosFromApi].splice(firstIndex, ITEMS_PER_PAGE));
-    setCurrentPage(nextPage);
-  };
-
-  const prevHandler = () => {
-    const prevPage = currentPage - 1;
-    if (prevPage < 0) return;
-    const firstIndex = prevPage * ITEMS_PER_PAGE;
-    setItems([...datosFromApi].splice(firstIndex, ITEMS_PER_PAGE));
-    setCurrentPage(prevPage);
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
   };
 
   return (
-    <>
-      <Paginate
-        nextHandler={nextHandler}
-        prevHandler={prevHandler}
-        currentPage={currentPage}
-        totalPages={Math.round(items.length / ITEMS_PER_PAGE)}
-        items={items}
+    <div>
+      {displayUsers}{" "}
+      <ReactPaginate
+        previousLabel={"Previous"}
+        nextLabel={"Next"}
+        pageCount={pageCount}
+        onPageChange={changePage}
+        containerClassName={"paginationBttns"}
+        previousLinkClassName={"previousBttn"}
+        nextLinkClassName={"nextBttn"}
+        disabledClassName={"paginationDisabled"}
+        activeClassName={"paginationActive"}
+        pageRangeDisplayed={13}
+        eventListener={window.scroll(0, 0)}
       />
-    </>
+    </div>
   );
 }
