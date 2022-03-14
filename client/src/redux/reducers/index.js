@@ -4,6 +4,8 @@ import {
   GET_RECIPE_BY_NAME,
   RESET_DETAIL,
   GET_DIETS,
+  ORDERBYAZ,
+  ORDERBYZA
 } from "../actions";
 
 const initialState = {
@@ -42,6 +44,16 @@ export default function rootReducer(state = initialState, { type, payload }) {
         diets: payload,
       };
     }
+    case ORDERBYAZ:
+      return {
+        ...state,
+        recipes: payload,
+      };
+    case ORDERBYZA:
+      return {
+        ...state,
+        recipes: payload,
+      };
     default:
       return state;
   }

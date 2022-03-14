@@ -7,6 +7,10 @@ export const ADD_RECIPE = "ADD_RECIPE";
 export const RESET_DETAIL = "RESET_DETAIL";
 export const GET_DIETS = "GET_DIETS";
 export const RESET_SEARCH = "RESET_SEARCH";
+export const ORDERBYAZ = "ORDERBYAZ";
+export const ORDERBYZA = "ORDERBYZA";
+
+/////////////       RECIPES       //////////////
 
 export function getRecipes() {
   return async (dispatch) => {
@@ -66,6 +70,8 @@ export function getRecipesByName(title) {
   };
 }
 
+/////////////       RESET       //////////////
+
 export function resetDetail() {
   return { type: RESET_DETAIL };
 }
@@ -74,6 +80,8 @@ export function resetSeach() {
   return { type: RESET_SEARCH };
 }
 
+/////////////       DIETS       //////////////
+
 export function getDiets() {
   return async (dispatch) => {
     try {
@@ -81,6 +89,46 @@ export function getDiets() {
       return dispatch({
         type: GET_DIETS,
         payload: diets.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+/////////////       FILTERS       //////////////
+
+export function orderByAz() {
+  return async function (dispatch) {
+    try {
+      const recipes = await axios.get(`${LOCALHOST_URL}/recipes`);
+      const orderByAZ = recipes.data.sort((a, b) => {
+        if (a.title > b.title) return 1;
+        if (a.title < b.title) return -1;
+        return 0;
+      });
+      dispatch({
+        type: ORDERBYAZ,
+        payload: orderByAZ,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function orderByZa() {
+  return async function (dispatch) {
+    try {
+      const recipes = await axios.get(`${LOCALHOST_URL}/recipes`);
+      const orderByZa = recipes.data.sort((a, b) => {
+        if (a.title < b.title) return 1;
+        if (a.title > b.title) return -1;
+        return 0;
+      });
+      dispatch({
+        type: ORDERBYZA,
+        payload: orderByZa,
       });
     } catch (error) {
       console.log(error);

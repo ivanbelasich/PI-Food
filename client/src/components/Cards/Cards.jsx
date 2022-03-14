@@ -16,11 +16,11 @@ export default function Cards() {
   const [pageNumber, setPageNumber] = useState(0);
 
   const currentPosts = recipes.slice(0, 130);
-  const usersPerPage = 8;
-  const pagesVisited = pageNumber * usersPerPage;
+  const recipesPerPage = 9;
+  const pagesVisited = pageNumber * recipesPerPage;
 
-  const displayUsers = currentPosts
-    .slice(pagesVisited, pagesVisited + usersPerPage)
+  const displayRecipes = currentPosts
+    .slice(pagesVisited, pagesVisited + recipesPerPage)
     .map((el) => {
       return (
         <>
@@ -35,7 +35,7 @@ export default function Cards() {
       );
     });
 
-  const pageCount = Math.ceil(currentPosts.length / usersPerPage);
+  const pageCount = Math.ceil(currentPosts.length / recipesPerPage);
 
   const changePage = ({ selected }) => {
     setPageNumber(selected);
@@ -43,18 +43,18 @@ export default function Cards() {
 
   return (
     <div>
-      {displayUsers}{" "}
+      {displayRecipes}
       <ReactPaginate
-        previousLabel={"Previous"}
-        nextLabel={"Next"}
+        previousLabel={"<Prev"}
+        nextLabel={"Next>"}
         pageCount={pageCount}
         onPageChange={changePage}
         containerClassName={"paginationBttns"}
         previousLinkClassName={"previousBttn"}
         nextLinkClassName={"nextBttn"}
         disabledClassName={"paginationDisabled"}
-        activeClassName={"paginationActive"}
-        pageRangeDisplayed={13}
+        /*  activeClassName={"paginationActive"} */
+        /*     pageRangeDisplayed={13} */
         eventListener={window.scroll(0, 0)}
       />
     </div>
