@@ -9,6 +9,9 @@ export const GET_DIETS = "GET_DIETS";
 export const RESET_SEARCH = "RESET_SEARCH";
 export const ORDERBYAZ = "ORDERBYAZ";
 export const ORDERBYZA = "ORDERBYZA";
+export const ORDERBYSCORE = "ORDERBYSCORE";
+export const ORDERBYSCOREDESC = "ORDERBYSCOREDESC";
+export const FILTERBYDIETS = "FILTERBYDIETS";
 
 /////////////       RECIPES       //////////////
 
@@ -96,42 +99,36 @@ export function getDiets() {
   };
 }
 
-/////////////       FILTERS       //////////////
+/////////////       ORDERING       //////////////
 
 export function orderByAz() {
-  return async function (dispatch) {
-    try {
-      const recipes = await axios.get(`${LOCALHOST_URL}/recipes`);
-      const orderByAZ = recipes.data.sort((a, b) => {
-        if (a.title > b.title) return 1;
-        if (a.title < b.title) return -1;
-        return 0;
-      });
-      dispatch({
-        type: ORDERBYAZ,
-        payload: orderByAZ,
-      });
-    } catch (error) {
-      console.log(error);
-    }
+  return {
+    type: ORDERBYAZ,
   };
 }
 
 export function orderByZa() {
-  return async function (dispatch) {
-    try {
-      const recipes = await axios.get(`${LOCALHOST_URL}/recipes`);
-      const orderByZa = recipes.data.sort((a, b) => {
-        if (a.title < b.title) return 1;
-        if (a.title > b.title) return -1;
-        return 0;
-      });
-      dispatch({
-        type: ORDERBYZA,
-        payload: orderByZa,
-      });
-    } catch (error) {
-      console.log(error);
-    }
+  return {
+    type: ORDERBYZA,
+  };
+}
+
+export function orderByScore() {
+  return {
+    type: ORDERBYSCORE,
+  };
+}
+
+export function orderByScoreDesc() {
+  return {
+    type: ORDERBYSCOREDESC,
+  };
+}
+
+/////////////       FILTERS       //////////////
+
+export function filterByDiets() {
+  return {
+    type: FILTERBYDIETS,
   };
 }

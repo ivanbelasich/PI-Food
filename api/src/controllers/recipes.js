@@ -6,21 +6,22 @@ const {
   BASE_URL_DETAILED,
   DETAIL_URL,
 } = require("../resources/index");
-const { API_KEY3} = process.env;
+const { API_KEY3 } = process.env;
 require("dotenv").config();
 
 const getRecipesByName = async (req, res) => {
   const { name } = req.query;
   try {
     if (name) {
-     /*  const dataApiName = await axios.get(
+      /*  const dataApiName = await axios.get(
         `${BASE_URL}?apiKey=${API_KEY3}${BASE_URL_DETAILED}&query=${name}&number=100`
       ); */
       const dataDB = await Recipe.findAll({
         where: { title: { [Op.iLike]: `%${name}%` } },
         include: [Diet],
       });
-      dataNameFilt = /* dataApiName.data.results
+      dataNameFilt =
+        /* dataApiName.data.results
         .map((el) => {
           return {
             image: el.image,
@@ -30,24 +31,26 @@ const getRecipesByName = async (req, res) => {
           };
         })
         .concat( */
-          dataDB.map((el) => {
-            return {
-              image: el.image,
-              title: el.title,
-              diets: el.diets.map((el) => el.title),
-              id: el.id,
-            };
-          })
+        dataDB.map((el) => {
+          return {
+            image: el.image,
+            title: el.title,
+            diets: el.diets.map((el) => el.title),
+            id: el.id,
+            score: el.spoonacularScore,
+          };
+        });
       /*   ); */
       return res.json(dataNameFilt);
     } else {
-    /*   const dataApi = await axios.get(
+      /*   const dataApi = await axios.get(
         `${BASE_URL}?apiKey=${API_KEY3}${BASE_URL_DETAILED}&number=100`
       ); */
       const dataDB = await Recipe.findAll({
         include: [Diet],
       });
-      dateFilt =/*  dataApi.data.results
+      dateFilt =
+        /*  dataApi.data.results
         .map((el) => {
           return {
             image: el.image,
@@ -57,14 +60,15 @@ const getRecipesByName = async (req, res) => {
           };
         })
         .concat( */
-          dataDB.map((el) => {
-            return {
-              image: el.image,
-              title: el.title,
-              diets: el.diets.map((el) => el.title),
-              id: el.id,
-            };
-          })
+        dataDB.map((el) => {
+          return {
+            image: el.image,
+            title: el.title,
+            diets: el.diets.map((el) => el.title),
+            score: el.spoonacularScore,
+            id: el.id,
+          };
+        });
       /*   ); */
       return res.json(dateFilt);
     }

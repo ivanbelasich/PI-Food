@@ -30,6 +30,7 @@ export default function Cards() {
             image={el.image}
             diets={el.diets}
             id={el.id}
+            score={el.score}
           />
         </>
       );

@@ -5,7 +5,10 @@ import {
   RESET_DETAIL,
   GET_DIETS,
   ORDERBYAZ,
-  ORDERBYZA
+  ORDERBYZA,
+  ORDERBYSCORE,
+  ORDERBYSCOREDESC,
+  FILTERBYDIETS,
 } from "../actions";
 
 const initialState = {
@@ -15,6 +18,7 @@ const initialState = {
 };
 
 export default function rootReducer(state = initialState, { type, payload }) {
+  // destructurin de type y payload
   switch (type) {
     case GET_RECIPES:
       return {
@@ -45,14 +49,57 @@ export default function rootReducer(state = initialState, { type, payload }) {
       };
     }
     case ORDERBYAZ:
+      var sortedPriceAsc;
+      if (state.recipes) {
+        sortedPriceAsc = state.recipes.sort((a, b) =>
+          a.title > b.title ? 1 : -1
+        );
+      }
       return {
         ...state,
-        recipes: payload,
+        recipes: [...sortedPriceAsc],
       };
     case ORDERBYZA:
+      var sortedPriceDesc;
+      if (state.recipes) {
+        sortedPriceDesc = state.recipes.sort((a, b) =>
+          a.title < b.title ? 1 : -1
+        );
+      }
       return {
         ...state,
-        recipes: payload,
+        recipes: [...sortedPriceDesc],
+      };
+    case ORDERBYSCORE:
+      var sortedScore;
+      if (state.recipes) {
+        sortedScore = state.recipes.sort((a, b) =>
+          a.score <= b.score ? 1 : -1
+        );
+      }
+      return {
+        ...state,
+        recipes: [...sortedScore],
+      };
+    case ORDERBYSCOREDESC:
+      var sortedScoreAsc;
+      if (state.recipes) {
+        sortedScoreAsc = state.recipes.sort((a, b) =>
+          a.score >= b.score ? 1 : -1
+        );
+      }
+      return {
+        ...state,
+        recipes: [...sortedScoreAsc],
+      };
+    case FILTERBYDIETS:
+      var filt1;
+      if (state.recipes) {
+        filt1 = state.recipes.filter((e) => e.diets === payload);
+      }
+      return {
+        ...state,
+        recipes: [...filt1],
       };
     default:
       return state;
