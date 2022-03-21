@@ -51,7 +51,7 @@ export const FilterBar = () => {
     e.preventDefault();
     setValues((values) => ({
       ...values,
-      [e.target.id]: [...values.diets, e.target.value],
+      [e.target.id]: [e.target.value],
     }));
   }
 
@@ -59,6 +59,7 @@ export const FilterBar = () => {
     e.preventDefault();
     dispatch(filterByDiets(values.diets));
     console.log(values.diets, "values.diets");
+    /* dispatch(res()) */
   }
 
   function reset(e) {
