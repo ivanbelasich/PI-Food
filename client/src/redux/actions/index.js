@@ -79,7 +79,7 @@ export function resetDetail() {
   return { type: RESET_DETAIL };
 }
 
-export function resetSeach() {
+export function resetSearch() {
   return { type: RESET_SEARCH };
 }
 
@@ -127,8 +127,9 @@ export function orderByScoreDesc() {
 
 /////////////       FILTERS       //////////////
 
-export function filterByDiets() {
+export function filterByDiets(diets) {
   return {
     type: FILTERBYDIETS,
+    payload: diets,
   };
 }

@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  filterByDiets,
   getDiets,
+  getRecipes,
   orderByAz,
   orderByScore,
   orderByScoreDesc,
@@ -11,12 +13,6 @@ import { Orders } from "../Orders/Orders";
 
 export const FilterBar = () => {
   const dispatch = useDispatch();
-
-  const diets = useSelector((state) => state.diets);
-
-  useEffect(() => {
-    dispatch(getDiets());
-  }, [dispatch]);
 
   function orderAZ(e) {
     e.preventDefault();
@@ -38,6 +34,14 @@ export const FilterBar = () => {
     dispatch(orderByScoreDesc());
   }
 
+  //////////           FILTRO DE DIETAS            //////////
+
+  const diets = useSelector((state) => state.diets);
+
+  useEffect(() => {
+    dispatch(getDiets());
+  }, [dispatch]);
+
   const [values, setValues] = React.useState({
     // React.useState() es lo mismo que useState() pero sin importar
     diets: [], // { useState } from "react";
@@ -47,8 +51,19 @@ export const FilterBar = () => {
     e.preventDefault();
     setValues((values) => ({
       ...values,
-      [e.target.title]: [...values.diets, e.target.value],
+      [e.target.id]: [...values.diets, e.target.value],
     }));
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    dispatch(filterByDiets(values.diets));
+    console.log(values.diets, "values.diets");
+  }
+
+  function reset(e) {
+    e.preventDefault();
+    dispatch(getRecipes());
   }
 
   return (
@@ -62,11 +77,16 @@ export const FilterBar = () => {
         />
       </div>
       <div>
-        <select onChange={handleChange}>
-          {diets.map((el) => (
-            <option>{el.title}</option>
-          ))}
-        </select>
+        <form onSubmit={handleSubmit}>
+          <select id="diets" onChange={handleChange}>
+            <option>Select</option>
+            {diets.map((el) => (
+              <option>{el.title}</option>
+            ))}
+          </select>
+          <button>Filtrar</button>
+          <button onClick={reset}>Reset</button>
+        </form>
       </div>
     </div>
   );

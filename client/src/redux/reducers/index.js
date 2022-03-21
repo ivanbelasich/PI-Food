@@ -9,6 +9,7 @@ import {
   ORDERBYSCORE,
   ORDERBYSCOREDESC,
   FILTERBYDIETS,
+  RESET_SEARCH,
 } from "../actions";
 
 const initialState = {
@@ -40,6 +41,12 @@ export default function rootReducer(state = initialState, { type, payload }) {
       return {
         ...state,
         recipeDetail: null,
+      };
+    }
+    case RESET_SEARCH: {
+      return {
+        ...state,
+        recipes: payload,
       };
     }
     case GET_DIETS: {
@@ -93,13 +100,12 @@ export default function rootReducer(state = initialState, { type, payload }) {
         recipes: [...sortedScoreAsc],
       };
     case FILTERBYDIETS:
-      var filt1;
-      if (state.recipes) {
-        filt1 = state.recipes.filter((e) => e.diets === payload);
-      }
+      const datita = state.recipes.filter(
+        (el) => el.diets.includes(payload[payload.length - 1]) === true
+      );
       return {
         ...state,
-        recipes: [...filt1],
+        recipes: [...datita],
       };
     default:
       return state;
