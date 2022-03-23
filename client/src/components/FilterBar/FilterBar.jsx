@@ -10,6 +10,8 @@ import {
   orderByZa,
 } from "../../redux/actions/index";
 import { Orders } from "../Orders/Orders";
+import SearchBar from "../SearchBar/SearchBar";
+import "./FilterBar.css";
 
 export const FilterBar = () => {
   const dispatch = useDispatch();
@@ -37,7 +39,6 @@ export const FilterBar = () => {
   //////////           FILTRO DE DIETAS            //////////
 
   const diets = useSelector((state) => state.diets);
-  const recipes = useSelector((state) => state.recipes);
 
   useEffect(() => {
     dispatch(getDiets());
@@ -58,7 +59,7 @@ export const FilterBar = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-      dispatch(filterByDiets(values.diets));
+    dispatch(filterByDiets(values.diets));
   }
 
   function reset(e) {
@@ -67,7 +68,10 @@ export const FilterBar = () => {
   }
 
   return (
-    <div>
+    <div className="general-filter">
+      <div>
+        <SearchBar />
+      </div>
       <div>
         <Orders
           orderAZ={orderAZ}
@@ -76,7 +80,7 @@ export const FilterBar = () => {
           orderScoreDesc={orderScoreDesc}
         />
       </div>
-      <div>
+      <div className="body-filterbar">
         <form onSubmit={handleSubmit}>
           <select id="diets" onChange={handleChange}>
             <option>Select</option>

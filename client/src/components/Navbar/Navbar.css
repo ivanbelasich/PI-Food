@@ -7,7 +7,7 @@
 } */
 
 .menu-navbar {
-  background-color: rgba(255, 238, 81, 0.774);
+  background-color: #853535;
   height: 75px;
   width: 100vw;
   display: flex;
@@ -22,21 +22,25 @@
   background-color: #f4f4f4;
 }
 
-.logo-navbar {
-    color: rgba(19, 15, 15, 0.801);
-    font-size: 35px;
-    padding: 0 40px;
-    font-weight: bold;
+.logo-navbar a {
+  color: white;
+  font-size: 35px;
+  padding: 0 40px;
+  font-weight: bold;
 }
 
 .navlink-navbar {
-    list-style: none;
-    display: flex;
+  list-style: none;
+  display: flex;
 }
 
 .navlink-navbar li {
-    border-radius: 3px;
-    margin: 0 5px;
+  border-radius: 3px;
+  margin: 0 5px;
+}
+
+.navlink-navbar li a {
+  color: white;
 }
 
 .active-navbar {

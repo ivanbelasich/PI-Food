@@ -1,8 +1,9 @@
 import React from "react";
+import "./Orders.css";
 
 export const Orders = ({ orderAZ, orderZA, orderScore, orderScoreDesc }) => {
   return (
-    <div>
+    <div className="body-orders">
       <div>
         <button onClick={(e) => orderAZ(e)}>A-Z</button>
       </div>

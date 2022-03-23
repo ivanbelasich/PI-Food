@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Poppins:wght@200;300&display=swap');
+
+
 .cards-container {
   width: 100%;
   display: flex;
@@ -5,6 +8,7 @@
   justify-content: space-around;
   flex-wrap: wrap;
   background-color: rgb(187, 187, 187);
+  
 }
 
 .paginationBttns {
@@ -22,10 +26,11 @@
 .paginationBttns a {
   padding: 10px;
   margin: 8px;
-  border-radius: 5px;
-  background-color: white;
+  border-radius: 21px;
+  background-color: rgb(248, 242, 226);
   color: black;
   cursor: pointer;
+  font-weight: 600;
 }
 
 .paginationBttns a:hover {

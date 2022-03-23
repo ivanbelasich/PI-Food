@@ -7,7 +7,7 @@ export default function Navbar() {
     <div className="body-navbar">
       <nav className="menu-navbar">
         <label className="logo-navbar">
-          <NavLink to="/home">P.I Henry</NavLink>
+          <NavLink to="/home">Food Api</NavLink>
         </label>
         <ul className="navlink-navbar">
           <li>

@@ -1,0 +1,9 @@
+.general-filter {
+  display: flex;
+  margin: 20px;
+}
+
+.body-filterbar {
+  /* justify-content: flex-end; */
+  background-color: red;
+}
