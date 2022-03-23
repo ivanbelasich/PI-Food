@@ -5,6 +5,7 @@ import { Home } from "./components/Home/Home";
 import { Create } from "./components/Create/Create";
 import { Detail } from "./components/Detail/Detail";
 import Navbar from "./components/Navbar/Navbar";
+import {Footer} from "./components/Footer/Footer"
 import "./App.css";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route exact path="/detail/:id" element={<Detail />} />
         {/*   <Route path="*" element={<NotFound />} /> */}
       </Routes>
+      <Footer />
     </>
   );
 }

@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getRecipes } from "../../redux/actions/index";
+import { NoRecipes } from "../NoRecipes/NoRecipes";
 import ReactPaginate from "react-paginate";
 import Card from "../Card/Card";
+import "./Cards.css";
 
 export default function Cards() {
   const dispatch = useDispatch();
@@ -16,23 +18,21 @@ export default function Cards() {
   const [pageNumber, setPageNumber] = useState(0);
 
   const currentPosts = recipes.slice(0, 130);
-  const recipesPerPage = 9;
+  const recipesPerPage = 8;
   const pagesVisited = pageNumber * recipesPerPage;
 
   const displayRecipes = currentPosts
     .slice(pagesVisited, pagesVisited + recipesPerPage)
     .map((el) => {
       return (
-        <>
-          <Card
-            key={el.id}
-            title={el.title}
-            image={el.image}
-            diets={el.diets}
-            id={el.id}
-            score={el.score}
-          />
-        </>
+        <Card
+          key={el.id}
+          title={el.title}
+          image={el.image}
+          diets={el.diets}
+          id={el.id}
+          score={el.score}
+        />
       );
     });
 
@@ -43,8 +43,10 @@ export default function Cards() {
   };
 
   return (
-    <div>
-      {displayRecipes}
+    <>
+      <div className="cards-container">
+        {recipes.length > 0 ? displayRecipes : <NoRecipes />}
+      </div>
       <ReactPaginate
         previousLabel={"<Prev"}
         nextLabel={"Next>"}
@@ -58,6 +60,6 @@ export default function Cards() {
         /*     pageRangeDisplayed={13} */
         eventListener={window.scroll(0, 0)}
       />
-    </div>
+    </>
   );
 }

@@ -1,15 +1,20 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import "./Card.css";
 
 export default function Card({ id, title, image, diets }) {
   return (
-    <div>
-      <NavLink to={`/detail/${id}`}>
-        <h1>{title}</h1>
+    <div className="card-conteiner">
+      <NavLink className="navlink-card" to={`/detail/${id}`}>
+        <div className="card-title">{title}</div>
+        <div>
+          <img className="card-image" src={image} alt="img" />
+        </div>
+        <div className="card-diets">
+          <h2>Diets:</h2>
+          <h3>{`${diets}`}</h3>
+        </div>
       </NavLink>
-      <img src={image} alt="img" />
-      <h2>Diets:</h2>
-      <h3>{diets}</h3>
     </div>
   );
 }

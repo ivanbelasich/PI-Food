@@ -37,6 +37,7 @@ export const FilterBar = () => {
   //////////           FILTRO DE DIETAS            //////////
 
   const diets = useSelector((state) => state.diets);
+  const recipes = useSelector((state) => state.recipes);
 
   useEffect(() => {
     dispatch(getDiets());
@@ -57,9 +58,7 @@ export const FilterBar = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch(filterByDiets(values.diets));
-    console.log(values.diets, "values.diets");
-    /* dispatch(res()) */
+      dispatch(filterByDiets(values.diets));
   }
 
   function reset(e) {

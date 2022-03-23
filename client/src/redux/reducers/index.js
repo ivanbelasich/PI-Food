@@ -103,7 +103,6 @@ export default function rootReducer(state = initialState, { type, payload }) {
       const datita = state.recipes.filter(
         (el) => el.diets.includes(payload[0]) === true
       );
-      console.log(payload, "payload")
       return {
         ...state,
         recipes: [...datita],

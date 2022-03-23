@@ -1,0 +1,43 @@
+.cards-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: rgb(187, 187, 187);
+}
+
+.paginationBttns {
+  height: 50px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  background: #853535;
+  align-items: center;
+  padding: 5px 0 10px 0;
+  margin-bottom: 51px;
+  margin-top: 0px;
+}
+
+.paginationBttns a {
+  padding: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+.paginationBttns a:hover {
+  color: black;
+  background-color: #d7a327;
+}
+
+.paginationActive a {
+  color: black;
+  background-color: #d7a327;
+}
+
+.previousBttn a {
+  width: 1px;
+}
