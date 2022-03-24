@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getRecipes, getRecipesByName } from "../../redux/actions";
+import { BiSearchAlt2 } from "react-icons/bi";
+import "./SearchBar.css";
 
 export default function SearchBar() {
   const [data, setData] = useState();
@@ -21,14 +23,17 @@ export default function SearchBar() {
   };
 
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
-      <input
-        id="search"
-        type="search"
-        placeholder="Search recipe"
-        onChange={(e) => handleChange(e)}
-      />
-      <button>Search</button>
-    </form>
+    <div className="searchbar-body">
+      <form onSubmit={(e) => handleSubmit(e)}>
+        <input
+          id="search"
+          placeholder="Search recipe"
+          onChange={(e) => handleChange(e)}
+        />
+        <div>
+          <BiSearchAlt2 className="search-button" />
+        </div>
+      </form>
+    </div>
   );
 }

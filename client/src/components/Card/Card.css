@@ -16,6 +16,7 @@
 .card-conteiner:hover {
   box-shadow: 0 3px 20px rgb(0, 0, 0, 1);
   background-color: rgb(248, 242, 226);
+  transform: translateY(-5px);
 }
 
 .card-image {

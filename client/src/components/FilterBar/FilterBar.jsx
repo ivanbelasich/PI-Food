@@ -10,7 +10,6 @@ import {
   orderByZa,
 } from "../../redux/actions/index";
 import { Orders } from "../Orders/Orders";
-import SearchBar from "../SearchBar/SearchBar";
 import "./FilterBar.css";
 
 export const FilterBar = () => {
@@ -69,9 +68,6 @@ export const FilterBar = () => {
 
   return (
     <div className="general-filter">
-      <div>
-        <SearchBar />
-      </div>
       <div>
         <Orders
           orderAZ={orderAZ}

@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { MdFoodBank } from "react-icons/md";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -7,19 +8,21 @@ export default function Navbar() {
     <div className="body-navbar">
       <nav className="menu-navbar">
         <label className="logo-navbar">
-          <NavLink to="/home">Food Api</NavLink>
+          <NavLink to="/home">
+            Food Api <MdFoodBank className="navbar-food-icon" />
+          </NavLink>
         </label>
-        <ul className="navlink-navbar">
+        <div className="navlink-navbar">
           <li>
-            <NavLink to="/home">Home</NavLink>
+            <NavLink className={({ isActive }) => "navlink-navbar" + (isActive ? " activated" : "")} to="/home">Home</NavLink>
           </li>
           <li>
-            <NavLink to="/add">Add</NavLink>
+            <NavLink className={({ isActive }) => "navlink-navbar" + (isActive ? " activated" : "")} to="/add">Add</NavLink>
           </li>
           <li>
-            <NavLink to="/about">About</NavLink>
+            <NavLink className={({ isActive }) => "navlink-navbar" + (isActive ? " activated" : "")} to="/about">About</NavLink>
           </li>
-        </ul>
+        </div>
         <span className="btn-menu-navbar">
           <GiHamburgerMenu />
         </span>

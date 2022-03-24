@@ -1,0 +1,27 @@
+.searchbar-body {
+  margin: 10px 0px -5px 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.searchbar-body input {
+  border-radius: 15px;
+  width: 250px;
+  height: 30px;
+  padding: 0px 0px 0px 10px;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid grey;
+}
+
+.search-button {
+  width: 27px;
+  height: 16px;
+  background: white;
+  color: #853535;
+  border-radius: 50%;
+  top: -25px;
+  position: relative;
+  left: 220px;
+  cursor: pointer;
+}

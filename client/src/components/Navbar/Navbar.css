@@ -1,11 +1,6 @@
-/* <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet"> */
-/* 
-.root-navbar {
+* {
+  font-family: "Poppins", Poppins;
 }
-
-.head-navbar {
-} */
-
 .menu-navbar {
   background-color: #853535;
   height: 75px;
@@ -18,7 +13,7 @@
 }
 
 .body-navbar {
-  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-family: "Poppins", Poppins;
   background-color: #f4f4f4;
 }
 
@@ -27,11 +22,19 @@
   font-size: 35px;
   padding: 0 40px;
   font-weight: bold;
+  text-decoration: none;
 }
 
 .navlink-navbar {
   list-style: none;
   display: flex;
+  color: white;
+  font-size: 20px;
+  margin: 0 15px 0 15px;
+}
+
+.navlink-navbar a {
+  text-decoration: none;
 }
 
 .navlink-navbar li {
@@ -39,11 +42,10 @@
   margin: 0 5px;
 }
 
-.navlink-navbar li a {
-  color: white;
+.navbar-food-icon {
+  margin: -5px;
 }
 
-.active-navbar {
-  background-color: red;
-  margin-right: 30px;
+.activated {
+  text-shadow: 3px 4px 2px black;
 }
