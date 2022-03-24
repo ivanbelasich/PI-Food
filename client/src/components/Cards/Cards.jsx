@@ -36,7 +36,7 @@ export default function Cards() {
       );
     });
 
-  const pageCount = Math.ceil(currentPosts.length / recipesPerPage);
+  var pageCount = Math.ceil(currentPosts.length / recipesPerPage);
 
   const changePage = ({ selected }) => {
     setPageNumber(selected);
@@ -56,8 +56,8 @@ export default function Cards() {
         previousLinkClassName={"previousBttn"}
         nextLinkClassName={"nextBttn"}
         disabledClassName={"paginationDisabled"}
-        /*  activeClassName={"paginationActive"} */
-        /*     pageRangeDisplayed={13} */
+         activeClassName={"paginationActive"}
+        pageLinkClassName={"pageLinkClassName"}
         eventListener={window.scroll(0, 0)}
       />
     </>

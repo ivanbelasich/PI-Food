@@ -7,3 +7,10 @@
   /* justify-content: flex-end; */
   background-color: red;
 }
+
+@media (max-width : 600px){
+  .general-filter {
+    display: none;
+    margin-top: 30px;
+  }
+}

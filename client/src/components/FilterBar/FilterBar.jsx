@@ -81,7 +81,7 @@ export const FilterBar = () => {
           <select id="diets" onChange={handleChange}>
             <option>Select</option>
             {diets.map((el) => (
-              <option>{el.title}</option>
+              <option key={el.id}>{el.title}</option>
             ))}
           </select>
           <button>Filtrar</button>

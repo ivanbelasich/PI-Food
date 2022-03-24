@@ -1,7 +1,9 @@
 .searchbar-body {
-  margin: 10px 0px -5px 10px;
+  height: 40px;
+  padding-top: 9px;
   display: flex;
   justify-content: center;
+  background-color: grey;
 }
 
 .searchbar-body input {
@@ -24,4 +26,10 @@
   position: relative;
   left: 220px;
   cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .search-button {
+    display: none;
+  }
 }

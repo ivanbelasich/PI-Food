@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Poppins:wght@200;300&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans&family=Poppins:wght@200;300&display=swap");
 
 .cards-container {
   width: 100%;
@@ -8,25 +7,24 @@
   justify-content: space-around;
   flex-wrap: wrap;
   background-color: rgb(187, 187, 187);
-  
 }
 
 .paginationBttns {
-  height: 50px;
+  height: 45px;
   list-style: none;
   display: flex;
   justify-content: center;
   background: #853535;
   align-items: center;
-  padding: 5px 0 10px 0;
-  margin-bottom: 51px;
+  padding: 5px 0px 5px 0px;
+  margin-bottom: 54px;
   margin-top: 0px;
 }
 
 .paginationBttns a {
   padding: 10px;
   margin: 8px;
-  border-radius: 21px;
+  border-radius: 3px;
   background-color: rgb(248, 242, 226);
   color: black;
   cursor: pointer;
@@ -34,15 +32,25 @@
 }
 
 .paginationBttns a:hover {
-  color: black;
-  background-color: #d7a327;
+  color: white;
+  background-color: rgba(3, 3, 3, 0.815);
 }
 
 .paginationActive a {
-  color: black;
-  background-color: #d7a327;
+  color: white;
+  background-color: rgba(3, 3, 3, 0.815);
 }
 
 .previousBttn a {
   width: 1px;
+}
+
+.pageLinkClassName {
+  color: blue;
+}
+
+@media (max-width: 600px) {
+  .pageLinkClassName li {
+    display: none;
+  }
 }

@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import { GiHamburgerMenu } from "react-icons/gi";
 import { MdFoodBank } from "react-icons/md";
 import "./Navbar.css";
 
@@ -23,9 +22,9 @@ export default function Navbar() {
             <NavLink className={({ isActive }) => "navlink-navbar" + (isActive ? " activated" : "")} to="/about">About</NavLink>
           </li>
         </div>
-        <span className="btn-menu-navbar">
+      {/*   <span className="btn-menu-navbar">
           <GiHamburgerMenu />
-        </span>
+        </span> */}
       </nav>
     </div>
   );
