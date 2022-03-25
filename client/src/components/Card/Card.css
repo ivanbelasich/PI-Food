@@ -11,6 +11,7 @@
   text-align: center;
   min-height: 330px;
   width: 250px;
+  max-height: 350px;
 }
 
 .card-conteiner:hover {

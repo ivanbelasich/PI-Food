@@ -10,6 +10,7 @@ import {
   orderByZa,
 } from "../../redux/actions/index";
 import { Orders } from "../Orders/Orders";
+import SearchBar from "../SearchBar/SearchBar";
 import "./FilterBar.css";
 
 export const FilterBar = () => {
@@ -68,25 +69,27 @@ export const FilterBar = () => {
 
   return (
     <div className="general-filter">
-      <div>
+      <div className="searchbar-filter"></div>
+      <SearchBar />
+      <div className="order-filter-body">
         <Orders
           orderAZ={orderAZ}
           orderZA={orderZA}
           orderScore={orderScore}
           orderScoreDesc={orderScoreDesc}
         />
-      </div>
-      <div className="body-filterbar">
-        <form onSubmit={handleSubmit}>
-          <select id="diets" onChange={handleChange}>
-            <option>Select</option>
-            {diets.map((el) => (
-              <option key={el.id}>{el.title}</option>
-            ))}
-          </select>
-          <button>Filtrar</button>
-          <button onClick={reset}>Reset</button>
-        </form>
+        <div className="body-filterbar">
+          <form onSubmit={handleSubmit}>
+            <select id="diets" onChange={handleChange}>
+              <option>Select</option>
+              {diets.map((el) => (
+                <option key={el.id}>{el.title}</option>
+              ))}
+            </select>
+            <button>Filtrar</button>
+            <button onClick={reset}>Reset</button>
+          </form>
+        </div>
       </div>
     </div>
   );

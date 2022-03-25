@@ -1,9 +1,10 @@
 .searchbar-body {
-  height: 40px;
-  padding-top: 9px;
-  display: flex;
-  justify-content: center;
-  background-color: grey;
+  /*  height: 40px;
+  padding-top: 9px; */
+  background-color: rgb(187, 187, 187);
+  margin-right: 45px;
+  /*  display: flex;
+  justify-content: center; */
 }
 
 .searchbar-body input {
@@ -17,19 +18,22 @@
 }
 
 .search-button {
-  width: 27px;
-  height: 16px;
+  width: 0px;
+  height: 0px;
   background: white;
   color: #853535;
-  border-radius: 50%;
-  top: -25px;
+  top: -27px;
   position: relative;
-  left: 220px;
+  left: 232px;
   cursor: pointer;
+  font-size: 15px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 799px) {
   .search-button {
     display: none;
+  }
+  .searchbar-body {
+    margin: 10px;
   }
 }

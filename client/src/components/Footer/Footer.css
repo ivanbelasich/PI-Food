@@ -1,9 +1,10 @@
 .footer-conteiner {
   background-color: rgba(3, 3, 3, 0.815);
   display: flex;
-  position: absolute;
-  bottom: 0;
+  /* position: absolute;
+  bottom: 0; */
   width: 100%;
+  height: 98px;
 }
 
 .footer-conteiner li {

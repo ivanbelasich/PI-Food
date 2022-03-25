@@ -7,6 +7,7 @@
   justify-content: space-around;
   flex-wrap: wrap;
   background-color: rgb(187, 187, 187);
+  min-height: calc(100vh - 143px);
 }
 
 .paginationBttns {
@@ -17,8 +18,7 @@
   background: #853535;
   align-items: center;
   padding: 5px 0px 5px 0px;
-  margin-bottom: 54px;
-  margin-top: 0px;
+  margin: 0;
 }
 
 .paginationBttns a {

@@ -23,17 +23,15 @@ export default function SearchBar() {
   };
 
   return (
-    <div className="searchbar-body">
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <input
-          id="search"
-          placeholder="Search recipe"
-          onChange={(e) => handleChange(e)}
-        />
-        <div>
-          <BiSearchAlt2 className="search-button" />
-        </div>
-      </form>
-    </div>
+    <form className="searchbar-body" onSubmit={(e) => handleSubmit(e)}>
+      <input
+        id="search"
+        placeholder="Search recipe"
+        onChange={(e) => handleChange(e)}
+      />
+      <div className="search-button">
+        <BiSearchAlt2 />
+      </div>
+    </form>
   );
 }

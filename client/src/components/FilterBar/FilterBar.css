@@ -1,16 +1,30 @@
 .general-filter {
   display: flex;
-  margin: 15px;
+  margin: 5px 0 0 0;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: rgb(187, 187, 187);
 }
 
 .body-filterbar {
-  /* justify-content: flex-end; */
   background-color: red;
+  
 }
 
-@media (max-width : 600px){
-  .general-filter {
+.order-filter-body {
+  display: flex;
+}
+
+/* .searchbar-filter {
+  justify-content: center;
+} */
+
+@media (max-width: 793px) {
+  .order-filter-body {
     display: none;
-    margin-top: 30px;
+  }
+  .general-filter {
+    display: flex;
+    justify-content: center;
   }
 }

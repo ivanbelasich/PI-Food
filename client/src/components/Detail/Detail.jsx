@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getRecipesDetail, resetDetail } from "../../redux/actions";
+import "./Detail.css"
 
 export const Detail = () => {
   const recipeDetail = useSelector((state) => state.recipeDetail);
@@ -16,7 +17,7 @@ export const Detail = () => {
   return (
     <>
       {recipeDetail ? (
-        <div>
+        <div className="detail-container">
           <h4>{recipeDetail.title}</h4>
           <img src={recipeDetail.image} alt="img" />
           <h3>Diets:</h3>

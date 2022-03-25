@@ -18,7 +18,7 @@ export default function Cards() {
   const [pageNumber, setPageNumber] = useState(0);
 
   const currentPosts = recipes.slice(0, 130);
-  const recipesPerPage = 8;
+  const recipesPerPage = 10;
   const pagesVisited = pageNumber * recipesPerPage;
 
   const displayRecipes = currentPosts
