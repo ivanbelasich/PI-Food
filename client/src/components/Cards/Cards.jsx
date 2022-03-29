@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import React from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getRecipes } from "../../redux/actions/index";
 import { NoRecipes } from "../NoRecipes/NoRecipes";
@@ -15,7 +16,7 @@ export default function Cards() {
 
   const recipes = useSelector((state) => state.recipes);
 
-  const [pageNumber, setPageNumber] = useState(0);
+  const [pageNumber, setPageNumber] = React.useState(0);
 
   const currentPosts = recipes.slice(0, 130);
   const recipesPerPage = 10;

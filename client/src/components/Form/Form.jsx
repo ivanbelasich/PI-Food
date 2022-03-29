@@ -1,13 +1,14 @@
 import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDiets } from "../../redux/actions";
 import { dishTypesData } from "../../redux/constants";
+import Validate from "../ValidateForm/ValidateForm";
+import "./Form.css";
 
 export const Form = () => {
-  const [data, setData] = useState({
+  const [data, setData] = React.useState({
     title: "",
     dishTypes: [],
     image: "",
@@ -17,6 +18,8 @@ export const Form = () => {
     instructions: "",
     diets: [],
   });
+
+  const [errors, setErrors] = React.useState({});
 
   const diets = useSelector((state) => state.diets);
 
@@ -30,14 +33,18 @@ export const Form = () => {
     if (e.target.id === "diets" || e.target.id === "dishTypes") {
       setData((data) => ({
         ...data,
-        [e.target.id]: [...data.diets, e.target.value],
+        [e.target.id]: [...data.diets, e.target.value]
       }));
+    /*   setErrors(
+        Validate({ [e.target.name]: [...data.diets,  e.target.value] })
+      ); */
     } else {
       setData((data) => ({
         ...data,
         [e.target.id]: e.target.value,
       }));
     }
+    setErrors(Validate({ ...data, [e.target.name]: e.target.value }));
   }
 
   async function handleSubmit(e) {
@@ -60,64 +67,129 @@ export const Form = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <form className="form-container" onSubmit={handleSubmit}>
+      <p>
+        <label for="title">Title</label>
         <input
           onChange={(e) => handleChange(e)}
           id="title"
           placeholder="Title"
-        ></input>
-      </div>
-      <div>
-        <select onChange={(e) => handleChange(e)} id="dishTypes" multiple>
-          {dishTypesData.map((el) => (
-            <option key={el}>{el}</option>
-          ))}
-        </select>
-      </div>
-      <div>
+          value={data.title}
+          required
+        />
+        {errors.title && <div className="errors-message">{errors.title}</div>}
+      </p>
+      <p>
+        <label for="image">Image</label>
         <input
           onChange={(e) => handleChange(e)}
           id="image"
-          placeholder="Image"
+          placeholder="Insert a link"
+          value={data.image}
+          required
         ></input>
-      </div>
-      <div>
+        {errors.image && <div className="errors-message">{errors.image}</div>}
+      </p>
+      <p>
+        <label for="score">Score</label>
         <input
-          onChange={(e) => handleChange(e)}
-          id="summary"
-          placeholder="Summary"
-        ></input>
-      </div>
-      <div>
-        <input
+          type="number"
           onChange={(e) => handleChange(e)}
           id="score"
-          placeholder="Score"
+          placeholder="From 0 to 100"
+          value={data.score}
+          required
         ></input>
-      </div>
-      <div>
+        {errors.score && <div className="errors-message">{errors.score}</div>}
+      </p>
+      <p>
+        <label for="healthScore">Health Score</label>
         <input
+          type="number"
           onChange={(e) => handleChange(e)}
           id="healthScore"
-          placeholder="Health score"
+          placeholder="From 0 to 100"
+          value={data.healthScore}
+          required
         ></input>
-      </div>
-      <div>
-        <input
+        {errors.healthScore && (
+          <div className="errors-message">{errors.healthScore}</div>
+        )}
+      </p>
+      <p>
+        <label for="dishTypes">Dishtypes</label>
+        <select
+         /*  value={data.dishTypes} */
           onChange={(e) => handleChange(e)}
-          id="instructions"
-          placeholder="Instructions"
-        ></input>
-      </div>
-      <div>
-        <select onChange={(e) => handleChange(e)} id="diets" multiple>
+          id="dishtypes"
+          multiple
+          required
+        >
+          {dishTypesData.map((el) => (
+            <option>{el}</option>
+          ))}
+        </select>
+        {errors.dishTypes && (
+          <div className="errors-message">{errors.dishTypes}</div>
+        )}
+      </p>
+      <p>
+        <label for="diets">Diets</label>
+        <select
+         /*  value={data.diets} */
+          onChange={(e) => handleChange(e)}
+          id="diets"
+          multiple
+          required
+        >
           {diets && diets.map((el) => <option key={el.id}>{el.title}</option>)}
         </select>
-      </div>
-      <div>
-        <button>Crear</button>
-      </div>
+        {errors.diets && <div className="errors-message">{errors.diets}</div>}
+      </p>
+      <p className="block">
+        <label for="summary">Summary</label>
+        <textarea
+          value={data.summary}
+          rows="3"
+          type="text"
+          onChange={(e) => handleChange(e)}
+          id="summary"
+          placeholder="A brief summary"
+          required
+        ></textarea>
+        {errors.summary && (
+          <div className="errors-message">{errors.summary}</div>
+        )}
+      </p>
+      <p className="block">
+        <label for="instructions">Instructions</label>
+        <textarea
+          value={data.instructions}
+          rows="3"
+          type="text"
+          onChange={(e) => handleChange(e)}
+          id="instructions"
+          placeholder="Step by step to create the dish"
+          required
+        ></textarea>
+        {errors.instructions && (
+          <div className="errors-message">{errors.instructions}</div>
+        )}
+      </p>
+      <p className="block-button">
+        <button
+          className={(errors) ? "disabled" : "enabled"}
+          disabled={
+          
+            errors.image 
+              ? true
+              : false
+          }
+        >
+          {" "}
+          Crear
+        </button>
+      </p>
     </form>
   );
 };

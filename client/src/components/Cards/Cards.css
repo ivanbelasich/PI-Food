@@ -6,8 +6,8 @@
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
-  background-color: rgb(187, 187, 187);
-  min-height: calc(100vh - 143px);
+  background-color: rgb(187 187 187 / 60%);
+  min-height: calc(100vh - 354px);
 }
 
 .paginationBttns {
@@ -25,7 +25,7 @@
   padding: 10px;
   margin: 8px;
   border-radius: 3px;
-  background-color: rgb(248, 242, 226);
+  background-color: #fff;
   color: black;
   cursor: pointer;
   font-weight: 600;

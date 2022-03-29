@@ -9,8 +9,11 @@ export default function Card({ id, title, image, diets }) {
         <div>
           <img className="card-image" src={image} alt="img" />
         </div>
-        <div className="card-title">{title}</div>
-        <div className="card-diets">{`${diets}`}</div>
+        <div className="card-text">
+          <div className="card-title">{title}</div>
+          <hr className="hr-card"/>
+          <div className="card-diets">{`${diets}`}</div>
+        </div>
       </NavLink>
     </div>
   );
