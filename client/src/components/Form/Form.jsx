@@ -40,10 +40,10 @@ export const Form = () => {
     } else if (e.target.id === "dishTypes") {
       setData((data) => ({
         ...data,
-        [e.target.id]: [e.target.value]
+        [e.target.id]: [e.target.value],
       }));
     } else {
-    /*   setErrors(Validate({ [e.target.name]: [...data.diets, e.target.value] })); */
+      /*   setErrors(Validate({ [e.target.name]: [...data.diets, e.target.value] })); */
       setData((data) => ({
         ...data,
         [e.target.id]: e.target.value,
@@ -92,7 +92,6 @@ export const Form = () => {
           onChange={(e) => handleChange(e)}
           id="image"
           placeholder="Insert a link"
-          /*    value={data.image} */
           required
         ></input>
         {errors.image && <div className="errors-message">{errors.image}</div>}
@@ -104,7 +103,6 @@ export const Form = () => {
           onChange={(e) => handleChange(e)}
           id="score"
           placeholder="From 0 to 100"
-          /*    value={data.score} */
           required
         ></input>
         {errors.score && <div className="errors-message">{errors.score}</div>}
@@ -116,7 +114,6 @@ export const Form = () => {
           onChange={(e) => handleChange(e)}
           id="healthScore"
           placeholder="From 0 to 100"
-          /*   value={data.healthScore} */
           required
         ></input>
         {errors.healthScore && (
@@ -131,7 +128,7 @@ export const Form = () => {
           id="dishTypes"
           required
         >
-           <option>Select a dish type</option>
+          <option>Select a dish type</option>
           {dishTypesData.map((el) => (
             <option key={el}>{el}</option>
           ))}
@@ -142,14 +139,7 @@ export const Form = () => {
       </p>
       <p>
         <label htmlFor="diets">Diets</label>
-        <select
-          /*   value={data.diets} */
-          onChange={(e) => handleChange(e)}
-          id="diets"
-          /*  multiple */
-          required
-         
-        >
+        <select onChange={(e) => handleChange(e)} id="diets" required>
           <option>Select one or more diets</option>
           {diets && diets.map((el) => <option key={el.id}>{el.title}</option>)}
         </select>
@@ -158,7 +148,6 @@ export const Form = () => {
       <p className="block">
         <label htmlFor="summary">Summary</label>
         <textarea
-          /* value={data.summary} */
           rows="2"
           type="text"
           onChange={(e) => handleChange(e)}
@@ -173,7 +162,6 @@ export const Form = () => {
       <p className="block">
         <label htmlFor="instructions">Instructions</label>
         <textarea
-          /*     value={data.instructions} */
           rows="3"
           type="text"
           onChange={(e) => handleChange(e)}
