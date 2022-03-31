@@ -1,11 +1,10 @@
 .form-container {
-  background-color: #232323c2;
-  color: white;
+  background-color: #fffffff1;
   margin-right: auto;
   margin-left: auto;
   padding: 1.5em;
   max-width: 1170px;
-  box-shadow: 0 0 25px 0 rgba(255, 255, 255, 0.774);
+  box-shadow: 0 0 25px 0 rgb(0, 0, 0);
   border-radius: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -25,7 +24,6 @@ button {
   background: none;
   border-bottom: 1px solid #853535;
   outline: 0;
-  color: #fff;
 }
 
 .form-container button {
@@ -35,6 +33,7 @@ button {
   padding: 1em;
   cursor: pointer;
   color: #000;
+  border-radius: 4px;
 }
 
 .select-field {
@@ -66,7 +65,8 @@ button {
   color: black;
 }
 
-@media (width > 600px) {
-  .form-container .block-button {
+@media (width > 800px) {
+  .form-container  {
+    width: 700px;
   }
 }

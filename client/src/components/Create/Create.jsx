@@ -6,6 +6,7 @@ export const Create = () => {
     <div className="create-container">
       <h2 className="create-title">Add your own recipe</h2>
       <Form />
+      <div className="div-bottom">.</div>
     </div>
   );
 };

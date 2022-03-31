@@ -30,21 +30,27 @@ export const Form = () => {
   }, [dispatch]);
 
   function handleChange(e) {
-    if (e.target.id === "diets" || e.target.id === "dishTypes") {
+    if (e.target.id === "diets") {
       setData((data) => ({
         ...data,
-        [e.target.id]: [...data.diets, e.target.value]
+        [e.target.id]: !data.diets.includes(e.target.value)
+          ? [...data.diets, e.target.value]
+          : [...data.diets],
       }));
-    /*   setErrors(
-        Validate({ [e.target.name]: [...data.diets,  e.target.value] })
-      ); */
+    } else if (e.target.id === "dishTypes") {
+      setData((data) => ({
+        ...data,
+        [e.target.id]: [e.target.value]
+      }));
     } else {
+    /*   setErrors(Validate({ [e.target.name]: [...data.diets, e.target.value] })); */
       setData((data) => ({
         ...data,
         [e.target.id]: e.target.value,
       }));
+      setErrors(Validate({ ...data, [e.target.name]: e.target.value }));
+      console.log(e.target.name, "esto que es");
     }
-    setErrors(Validate({ ...data, [e.target.name]: e.target.value }));
   }
 
   async function handleSubmit(e) {
@@ -69,47 +75,48 @@ export const Form = () => {
   return (
     <form className="form-container" onSubmit={handleSubmit}>
       <p>
-        <label for="title">Title</label>
+        <label htmlFor="title">Title</label>
         <input
           onChange={(e) => handleChange(e)}
           id="title"
           placeholder="Title"
           value={data.title}
           required
+          className={errors.title && "danger"}
         />
         {errors.title && <div className="errors-message">{errors.title}</div>}
       </p>
       <p>
-        <label for="image">Image</label>
+        <label htmlFor="image">Image</label>
         <input
           onChange={(e) => handleChange(e)}
           id="image"
           placeholder="Insert a link"
-          value={data.image}
+          /*    value={data.image} */
           required
         ></input>
         {errors.image && <div className="errors-message">{errors.image}</div>}
       </p>
       <p>
-        <label for="score">Score</label>
+        <label htmlFor="score">Score</label>
         <input
           type="number"
           onChange={(e) => handleChange(e)}
           id="score"
           placeholder="From 0 to 100"
-          value={data.score}
+          /*    value={data.score} */
           required
         ></input>
         {errors.score && <div className="errors-message">{errors.score}</div>}
       </p>
       <p>
-        <label for="healthScore">Health Score</label>
+        <label htmlFor="healthScore">Health Score</label>
         <input
           type="number"
           onChange={(e) => handleChange(e)}
           id="healthScore"
           placeholder="From 0 to 100"
-          value={data.healthScore}
+          /*   value={data.healthScore} */
           required
         ></input>
         {errors.healthScore && (
@@ -117,16 +124,16 @@ export const Form = () => {
         )}
       </p>
       <p>
-        <label for="dishTypes">Dishtypes</label>
+        <label htmlFor="dishTypes">Dishtypes</label>
         <select
-         /*  value={data.dishTypes} */
+          value={data.dishTypes}
           onChange={(e) => handleChange(e)}
-          id="dishtypes"
-          multiple
+          id="dishTypes"
           required
         >
+           <option>Select a dish type</option>
           {dishTypesData.map((el) => (
-            <option>{el}</option>
+            <option key={el}>{el}</option>
           ))}
         </select>
         {errors.dishTypes && (
@@ -134,23 +141,25 @@ export const Form = () => {
         )}
       </p>
       <p>
-        <label for="diets">Diets</label>
+        <label htmlFor="diets">Diets</label>
         <select
-         /*  value={data.diets} */
+          /*   value={data.diets} */
           onChange={(e) => handleChange(e)}
           id="diets"
-          multiple
+          /*  multiple */
           required
+         
         >
+          <option>Select one or more diets</option>
           {diets && diets.map((el) => <option key={el.id}>{el.title}</option>)}
         </select>
         {errors.diets && <div className="errors-message">{errors.diets}</div>}
       </p>
       <p className="block">
-        <label for="summary">Summary</label>
+        <label htmlFor="summary">Summary</label>
         <textarea
-          value={data.summary}
-          rows="3"
+          /* value={data.summary} */
+          rows="2"
           type="text"
           onChange={(e) => handleChange(e)}
           id="summary"
@@ -162,9 +171,9 @@ export const Form = () => {
         )}
       </p>
       <p className="block">
-        <label for="instructions">Instructions</label>
+        <label htmlFor="instructions">Instructions</label>
         <textarea
-          value={data.instructions}
+          /*     value={data.instructions} */
           rows="3"
           type="text"
           onChange={(e) => handleChange(e)}
@@ -178,10 +187,27 @@ export const Form = () => {
       </p>
       <p className="block-button">
         <button
-          className={(errors) ? "disabled" : "enabled"}
+          className={
+            errors.title ||
+            errors.image ||
+            errors.score ||
+            errors.healthScore ||
+            errors.instructions ||
+            errors.diets ||
+            errors.summary ||
+            errors.dishTypes
+              ? "disabled"
+              : "enabled"
+          }
           disabled={
-          
-            errors.image 
+            errors.title ||
+            errors.image ||
+            errors.score ||
+            errors.healthScore ||
+            errors.instructions ||
+            errors.diets ||
+            errors.summary ||
+            errors.dishTypes
               ? true
               : false
           }
