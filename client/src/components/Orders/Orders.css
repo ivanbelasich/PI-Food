@@ -1,4 +1,7 @@
 .body-orders {
-    display: flex;
-    background-color: green;
+  display: flex;
+}
+
+.body-orders button {
+
 }

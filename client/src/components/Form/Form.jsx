@@ -37,11 +37,13 @@ export const Form = () => {
           ? [...data.diets, e.target.value]
           : [...data.diets],
       }));
+      setErrors(Validate({ ...data, [e.target.name]: [e.target.value] }));
     } else if (e.target.id === "dishTypes") {
       setData((data) => ({
         ...data,
         [e.target.id]: [e.target.value],
       }));
+      setErrors(Validate({ ...data, [e.target.name]: e.target.value }));
     } else {
       /*   setErrors(Validate({ [e.target.name]: [...data.diets, e.target.value] })); */
       setData((data) => ({
@@ -49,7 +51,6 @@ export const Form = () => {
         [e.target.id]: e.target.value,
       }));
       setErrors(Validate({ ...data, [e.target.name]: e.target.value }));
-      console.log(e.target.name, "esto que es");
     }
   }
 
@@ -82,7 +83,7 @@ export const Form = () => {
           placeholder="Title"
           value={data.title}
           required
-          className={errors.title && "danger"}
+          className={errors.title}
         />
         {errors.title && <div className="errors-message">{errors.title}</div>}
       </p>
@@ -128,7 +129,7 @@ export const Form = () => {
           id="dishTypes"
           required
         >
-          <option>Select a dish type</option>
+          <option value="" >Select a dish type</option>
           {dishTypesData.map((el) => (
             <option key={el}>{el}</option>
           ))}
@@ -145,6 +146,9 @@ export const Form = () => {
         </select>
         {errors.diets && <div className="errors-message">{errors.diets}</div>}
       </p>
+      <div className="diets-buttons-container">
+      {data.diets.map(el => <button className="diets-buttons">{el}</button>)}
+      </div>
       <p className="block">
         <label htmlFor="summary">Summary</label>
         <textarea
@@ -185,7 +189,7 @@ export const Form = () => {
             errors.summary ||
             errors.dishTypes
               ? "disabled"
-              : "enabled"
+              : "button-form"
           }
           disabled={
             errors.title ||

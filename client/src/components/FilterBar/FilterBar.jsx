@@ -69,27 +69,26 @@ export const FilterBar = () => {
 
   return (
     <div className="general-filter">
-      <div className="searchbar-filter"></div>
-      <SearchBar />
-      <div className="order-filter-body">
-        <Orders
-          orderAZ={orderAZ}
-          orderZA={orderZA}
-          orderScore={orderScore}
-          orderScoreDesc={orderScoreDesc}
-        />
-        <div className="body-filterbar">
-          <form onSubmit={handleSubmit}>
-            <select id="diets" onChange={handleChange}>
-              <option>Select</option>
-              {diets.map((el) => (
-                <option key={el.id}>{el.title}</option>
-              ))}
-            </select>
-            <button>Filtrar</button>
-            <button onClick={reset}>Reset</button>
-          </form>
-        </div>
+      <Orders
+        orderAZ={orderAZ}
+        orderZA={orderZA}
+        orderScore={orderScore}
+        orderScoreDesc={orderScoreDesc}
+      />
+      <div className="searchbar-filter">
+        <SearchBar />
+      </div>
+      <div className="body-filterbar">
+        <form className="form-filter" onSubmit={handleSubmit}>
+          <select className="select-filter" id="diets" onChange={handleChange}>
+            <option value={{"title":"a"}}>Select</option>
+            {diets.map((el) => (
+              <option key={el.id}>{el.title}</option>
+            ))}
+          </select>
+          <button className="filter-button">Filtrar</button>
+        </form>
+        <button className="filter-buttona" onClick={reset}>Reset</button>
       </div>
     </div>
   );

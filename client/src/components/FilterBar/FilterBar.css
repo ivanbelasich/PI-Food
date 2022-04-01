@@ -1,23 +1,58 @@
 .general-filter {
   display: flex;
-  margin: 5px 0 0 0;
   align-items: center;
-  justify-content: flex-end;
-  background-color: rgb(187, 187, 187);
+  background-color: rgb(187 187 187 / 60%);
+  justify-content: space-around;
+  border-bottom: 0;
+  margin-top: 5px;
 }
 
 .body-filterbar {
-  background-color: red;
-  
+  display: flex;
+  margin: 10px;
 }
 
-.order-filter-body {
+.filter-button {
+  display: flex;
+  border: none;
+  margin: 0px 5px 0px 5px;
+  border-radius: 3px;
+  align-items: center;
+  height: 3em;
+  cursor: pointer;
+  background-color: rgb(112, 112, 112);
+  box-shadow: 1px 2px 3px 0px #0000008a;
+  justify-content: center;
+  width: 65px;
+  color: white;
+}
+
+.filter-buttona {
+  display: flex;
+  border: none;
+  margin: 0px 5px 0px 5px;
+  border-radius: 3px;
+  align-items: center;
+  height: 3em;
+  cursor: pointer;
+  box-shadow: 1px 2px 3px 0px #0000008a;
+  justify-content: center;
+  width: 65px;
+  background-color: #ba4343;
+  color: white;
+}
+
+.form-filter {
   display: flex;
 }
 
-/* .searchbar-filter {
-  justify-content: center;
-} */
+.select-filter {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  box-shadow: 1px 2px 3px 0px #0000008a;
+  border-radius: 3px;
+}
 
 @media (max-width: 793px) {
   .order-filter-body {
