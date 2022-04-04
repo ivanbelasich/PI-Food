@@ -69,16 +69,18 @@ export const FilterBar = () => {
 
   return (
     <div className="general-filter">
+   
+      <div className="searchbar-filter">
+        <SearchBar />
+      </div>
       <Orders
         orderAZ={orderAZ}
         orderZA={orderZA}
         orderScore={orderScore}
         orderScoreDesc={orderScoreDesc}
       />
-      <div className="searchbar-filter">
-        <SearchBar />
-      </div>
       <div className="body-filterbar">
+     
         <form className="form-filter" onSubmit={handleSubmit}>
           <select className="select-filter" id="diets" onChange={handleChange}>
             <option value={{"title":"a"}}>Select</option>
@@ -89,7 +91,9 @@ export const FilterBar = () => {
           <button className="filter-button">Filtrar</button>
         </form>
         <button className="filter-buttona" onClick={reset}>Reset</button>
+      
       </div>
+     
     </div>
   );
 };

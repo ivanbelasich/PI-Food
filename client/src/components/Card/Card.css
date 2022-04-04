@@ -4,7 +4,7 @@
   margin: 30px;
   padding: 10px;
   border-radius: 8px;
-  box-shadow: 0 2px 20px rgb(0 0 0 / 50%);
+  box-shadow: 0 2px 20px rgb(0 0 0);
   overflow: hidden;
   cursor: default;
   transition: all 300ms ease;
@@ -33,10 +33,6 @@
 .navlink-card {
   text-decoration: none;
   color: rgb(0, 0, 0);
-}
-
-.card-diets {
-  font-size: 18px;
 }
 
 .hr-card {

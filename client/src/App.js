@@ -3,9 +3,10 @@ import { Routes, Route } from "react-router-dom";
 import { About } from "./components/About/About";
 import { Home } from "./components/Home/Home";
 import { Create } from "./components/Create/Create";
-import { Detail } from "./components/Detail/Detail";
+import { DetailContainer } from "./components/DetailContainer/DetailContainer";
 import Navbar from "./components/Navbar/Navbar";
-import {Footer} from "./components/Footer/Footer"
+import { Footer } from "./components/Footer/Footer";
+import { NotFound } from "./components/NotFound/NotFound";
 import "./App.css";
 
 function App() {
@@ -16,8 +17,8 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route exact path="/add" element={<Create />} />
         <Route exact path="/about" element={<About />} />
-        <Route exact path="/detail/:id" element={<Detail />} />
-        {/*   <Route path="*" element={<NotFound />} /> */}
+        <Route exact path="/detail/:id" element={<DetailContainer />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </>

@@ -43,6 +43,7 @@ export default function Cards() {
     setPageNumber(selected);
   };
 
+  const ancho = window.innerWidth;
   return (
     <>
       <div className="cards-container">
@@ -57,9 +58,11 @@ export default function Cards() {
         previousLinkClassName={"previousBttn"}
         nextLinkClassName={"nextBttn"}
         disabledClassName={"paginationDisabled"}
-         activeClassName={"paginationActive"}
+        activeClassName={"paginationActive"}
         pageLinkClassName={"pageLinkClassName"}
         eventListener={window.scroll(0, 0)}
+        marginPagesDisplayed={ancho < 600 ? 0 : 5}
+        pageRangeDisplayed={ancho < 600 ? 0 : 5}
       />
     </>
   );

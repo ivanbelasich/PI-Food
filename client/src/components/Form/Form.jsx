@@ -81,7 +81,6 @@ export const Form = () => {
           onChange={(e) => handleChange(e)}
           id="title"
           placeholder="Title"
-          value={data.title}
           required
           className={errors.title}
         />
@@ -124,7 +123,6 @@ export const Form = () => {
       <p>
         <label htmlFor="dishTypes">Dishtypes</label>
         <select
-          value={data.dishTypes}
           onChange={(e) => handleChange(e)}
           id="dishTypes"
           required

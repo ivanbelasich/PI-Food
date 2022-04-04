@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getRecipesDetail, resetDetail } from "../../redux/actions";
-import "./Detail.css"
+import "./Detail.css";
 
 export const Detail = () => {
   const recipeDetail = useSelector((state) => state.recipeDetail);
@@ -18,20 +18,32 @@ export const Detail = () => {
     <>
       {recipeDetail ? (
         <div className="detail-container">
-          <h4>{recipeDetail.title}</h4>
-          <img src={recipeDetail.image} alt="img" />
-          <h3>Diets:</h3>
-          <h3>{recipeDetail.diets}</h3>
-          <h3>Dish types:</h3>
-          <h4>{recipeDetail.dishTypes}</h4>
-          <h3>Summary:</h3>
-          <h4>{recipeDetail.summary}</h4>
-          <h3>Score:</h3>
-          <h4>{recipeDetail.score}</h4>
-          <h3>Health score:</h3>
-          <h4>{recipeDetail.healthScore}</h4>
-          <h3>Instructions:</h3>
-          <h4>{recipeDetail.instructions}</h4>
+            <div className="detail-principal-title">{recipeDetail.title}</div>
+            <img className="detail-image" src={recipeDetail.image} alt="img" />
+          <div className="detail-card">
+            <div className="detail-title">Diets</div>
+            <div className="detail-data">{recipeDetail.diets}</div>
+          </div>
+          <div className="detail-card">
+            <div className="detail-title">Dish types</div>
+            <div className="detail-data">{recipeDetail.dishTypes}</div>
+          </div>
+          <div className="detail-card">
+            <div className="detail-title">Summary</div>
+            <div className="detail-data">{recipeDetail.summary}</div>
+          </div>
+          <div className="detail-card">
+            <div className="detail-title">Score</div>
+            <div className="detail-data">{recipeDetail.score}</div>
+          </div>
+          <div className="detail-card">
+            <div className="detail-title">Health score</div>
+            <div className="detail-data">{recipeDetail.healthScore}</div>
+          </div>
+          <div className="detail-card">
+            <div className="detail-title">Instructions</div>
+            <div className="detail-data">{recipeDetail.instructions}</div>
+          </div>
         </div>
       ) : (
         <p>Cargando...</p>

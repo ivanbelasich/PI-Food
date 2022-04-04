@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans&family=Poppins:wght@200;300&display=swap");
 
+
 .cards-container {
   width: 100%;
   display: flex;
@@ -7,7 +8,9 @@
   justify-content: space-around;
   flex-wrap: wrap;
   background-color: rgb(187 187 187 / 60%);
-  min-height: calc(100vh - 354px);
+  min-height: calc(100vh + 98px);
+  background-image: url("./marble-gb6a6e2608_1920.jpg");
+  background-size: cover;
 }
 
 .paginationBttns {
@@ -19,6 +22,10 @@
   align-items: center;
   padding: 5px 0px 5px 0px;
   margin: 0;
+}
+
+.paginationBttns .paginationActive li {
+  display: none;
 }
 
 .paginationBttns a {

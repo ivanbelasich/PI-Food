@@ -2,9 +2,10 @@
   display: flex;
   align-items: center;
   background-color: rgb(187 187 187 / 60%);
-  justify-content: space-around;
+  justify-content: space-evenly;
   border-bottom: 0;
   margin-top: 5px;
+  background-image: url("../Cards//marble-gb6a6e2608_1920.jpg");
 }
 
 .body-filterbar {
@@ -20,11 +21,11 @@
   align-items: center;
   height: 3em;
   cursor: pointer;
-  background-color: rgb(112, 112, 112);
+  background-color: #f5f5dc82;
   box-shadow: 1px 2px 3px 0px #0000008a;
   justify-content: center;
   width: 65px;
-  color: white;
+  font-weight: 600;
 }
 
 .filter-buttona {

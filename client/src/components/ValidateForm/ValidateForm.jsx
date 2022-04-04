@@ -2,8 +2,8 @@ import "./ValidateForm.css";
 
 export default function Validate(input) {
   let errors = {};
-  if (input.title.length < 3) {
-    errors.title = "The title must contain more than 3 letters";
+  if (!input.title.length) {
+    errors.title = "The title is required";
   } else if (input.image.length < 10) {
     errors.image = "Must contain a link";
   } else if (!input.score || input.score < 0 || input.score > 100) {
