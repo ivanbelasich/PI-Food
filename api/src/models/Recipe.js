@@ -31,6 +31,7 @@ module.exports = (sequelize) => {
     },
     image: {
       type: DataTypes.STRING,
+      defaultValue: "https://assets.unileversolutions.com/recipes-v2/37805.jpg"
     },
   });
 };

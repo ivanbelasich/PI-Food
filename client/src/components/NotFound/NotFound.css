@@ -1,3 +1,16 @@
+.notfound-container {
+  padding-top: 25px;
+  display: flex;
+}
+
 .body-notfound {
-    min-height: (100vh + 50px);
+  width: 700px;
+  height: 100vh;
+  margin: auto;
+}
+
+@media (width < 700px) {
+  .body-notfound {
+    width: 100vw;
+  }
 }

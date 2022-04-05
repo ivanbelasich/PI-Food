@@ -1,11 +1,10 @@
 .general-filter {
   display: flex;
   align-items: center;
-  background-color: rgb(187 187 187 / 60%);
+  background-color: rgba(40, 40, 40, 0.87);
   justify-content: space-evenly;
   border-bottom: 0;
-  margin-top: 5px;
-  background-image: url("../Cards//marble-gb6a6e2608_1920.jpg");
+  margin-top: 4px;
 }
 
 .body-filterbar {
@@ -21,11 +20,11 @@
   align-items: center;
   height: 3em;
   cursor: pointer;
-  background-color: #f5f5dc82;
-  box-shadow: 1px 2px 3px 0px #0000008a;
+  background-color: #222222a3;
+  box-shadow: 1px 2px 3px 0px #000000c7;
   justify-content: center;
   width: 65px;
-  font-weight: 600;
+  color: white;
 }
 
 .filter-buttona {
@@ -55,12 +54,18 @@
   border-radius: 3px;
 }
 
+.order-filter-body {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
 @media (max-width: 793px) {
   .order-filter-body {
-    display: none;
+    display: grid;
   }
   .general-filter {
-    display: flex;
+    display: grid;
     justify-content: center;
   }
 }

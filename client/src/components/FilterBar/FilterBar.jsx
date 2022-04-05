@@ -69,10 +69,10 @@ export const FilterBar = () => {
 
   return (
     <div className="general-filter">
-   
       <div className="searchbar-filter">
         <SearchBar />
       </div>
+      <div className="order-filter-body">
       <Orders
         orderAZ={orderAZ}
         orderZA={orderZA}
@@ -80,20 +80,20 @@ export const FilterBar = () => {
         orderScoreDesc={orderScoreDesc}
       />
       <div className="body-filterbar">
-     
         <form className="form-filter" onSubmit={handleSubmit}>
           <select className="select-filter" id="diets" onChange={handleChange}>
-            <option value={{"title":"a"}}>Select</option>
+            <option value={{ title: "a" }}>Select</option>
             {diets.map((el) => (
               <option key={el.id}>{el.title}</option>
             ))}
           </select>
           <button className="filter-button">Filtrar</button>
         </form>
-        <button className="filter-buttona" onClick={reset}>Reset</button>
-      
+        <button className="filter-buttona" onClick={reset}>
+          Reset
+        </button>
       </div>
-     
+      </div>
     </div>
   );
 };

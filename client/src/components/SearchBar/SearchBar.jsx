@@ -18,7 +18,7 @@ export default function SearchBar() {
     if (data) {
       dispatch(getRecipesByName(data));
     } else {
-      dispatch(getRecipes());
+      dispatch(getRecipes())
     }
   };
 
@@ -29,9 +29,9 @@ export default function SearchBar() {
         placeholder="Search recipe"
         onChange={(e) => handleChange(e)}
       />
-      <div className="search-button">
+      <button type="submit" className="search-button">
         <BiSearchAlt2 />
-      </div>
+      </button>
     </form>
   );
 }

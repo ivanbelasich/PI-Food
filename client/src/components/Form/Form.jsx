@@ -57,20 +57,27 @@ export const Form = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const datita = await axios.post("http://localhost:3001/recipe", {
-        title: data.title,
-        dishTypes: data.dishTypes,
-        image: data.image,
-        summary: data.summary,
-        spoonacularScore: data.score,
-        healthScore: data.healthScore,
-        instructions: data.instructions,
-        diets: data.diets,
-      });
-      return datita;
+      if (window.confirm("Desea agregar receta?") === true) {
+        const datita = await axios.post("http://localhost:3001/recipe", {
+          title: data.title,
+          dishTypes: data.dishTypes,
+          image: data.image,
+          summary: data.summary,
+          spoonacularScore: data.score,
+          healthScore: data.healthScore,
+          instructions: data.instructions,
+          diets: data.diets,
+        });
+        e.target.reset();
+        return datita;
+      } else preventD();
     } catch (error) {
       console.log(error);
     }
+  }
+
+  function preventD(e) {
+    e.preventDefault();
   }
 
   return (
@@ -122,12 +129,8 @@ export const Form = () => {
       </p>
       <p>
         <label htmlFor="dishTypes">Dishtypes</label>
-        <select
-          onChange={(e) => handleChange(e)}
-          id="dishTypes"
-          required
-        >
-          <option value="" >Select a dish type</option>
+        <select onChange={(e) => handleChange(e)} id="dishTypes" required>
+          <option value="">Select a dish type</option>
           {dishTypesData.map((el) => (
             <option key={el}>{el}</option>
           ))}
@@ -145,7 +148,9 @@ export const Form = () => {
         {errors.diets && <div className="errors-message">{errors.diets}</div>}
       </p>
       <div className="diets-buttons-container">
-      {data.diets.map(el => <button className="diets-buttons">{el}</button>)}
+        {data.diets.map((el) => (
+          <button className="diets-buttons">{el}</button>
+        ))}
       </div>
       <p className="block">
         <label htmlFor="summary">Summary</label>

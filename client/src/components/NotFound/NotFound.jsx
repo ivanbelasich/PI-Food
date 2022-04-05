@@ -2,5 +2,12 @@ import React from "react";
 import "./NotFound.css";
 
 export const NotFound = () => {
-  return <div className="body-notfound">NotFound</div>;
+  return (
+    <div className="notfound-container">
+      <img
+        src="https://baja.website/wp-content/uploads/2021/04/error-404-not-found.jpg"
+        className="body-notfound"
+      ></img>
+    </div>
+  );
 };
