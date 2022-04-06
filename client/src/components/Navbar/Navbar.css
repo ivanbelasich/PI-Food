@@ -42,6 +42,11 @@
   margin: 0 15px 0 15px;
 }
 
+.navlink-navbar:hover {
+  color: black;
+  transition: .2s;
+}
+
 .navlink-navbar a {
   text-decoration: none;
   text-transform: uppercase;

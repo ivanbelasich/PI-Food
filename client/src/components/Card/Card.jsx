@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "./trortilla.jpg";
 import "./Card.css";
 
 export default function Card({ id, title, image, diets }) {

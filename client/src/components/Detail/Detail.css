@@ -1,12 +1,13 @@
 .detail-container {
   background-size: cover;
-  height: auto;
   padding: 1em;
   border-radius: 10px;
   box-shadow: 2px 3px 6px 1px #1e1e1e;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background-color: #b0b0b0ad;
+  background-color: rgba(176, 176, 176, 0.37);
+  background-size: cover;
+  /* height: 100vh; */
 }
 
 .detail-container .detail-principal-title {

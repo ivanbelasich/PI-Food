@@ -1,9 +1,7 @@
 .create-container {
-   /*  background-color: rgb(114, 114, 114); */
-    background-image: url("./d36d462db827833805497d9ea78a1343.jpg");
+    background-image: url("../resources/d36d462db827833805497d9ea78a1343.jpg");
     box-sizing: border-box;
     background-size: cover;
-   /*  padding: 0 1rem; */
 }
 
 .create-title {

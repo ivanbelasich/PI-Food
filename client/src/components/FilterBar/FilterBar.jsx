@@ -89,7 +89,7 @@ export const FilterBar = () => {
           </select>
           <button className="filter-button">Filtrar</button>
         </form>
-        <button className="filter-buttona" onClick={reset}>
+        <button className="filter-button-reset" onClick={reset}>
           Reset
         </button>
       </div>

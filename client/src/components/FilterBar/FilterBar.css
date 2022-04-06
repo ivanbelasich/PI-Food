@@ -26,8 +26,13 @@
   width: 65px;
   color: white;
 }
+.filter-button:hover {
+  background-color: #a8a8a891;
+  color: black;
+  transition: .2s;
+}
 
-.filter-buttona {
+.filter-button-reset {
   display: flex;
   border: none;
   margin: 0px 5px 0px 5px;
@@ -40,6 +45,11 @@
   width: 65px;
   background-color: #ba4343;
   color: white;
+}
+
+.filter-button-reset:hover {
+  color: black;
+  background-color: #e86969;
 }
 
 .form-filter {

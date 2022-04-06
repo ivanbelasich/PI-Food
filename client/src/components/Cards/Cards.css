@@ -9,8 +9,7 @@
   flex-wrap: wrap;
   background-color: rgb(187 187 187 / 60%);
   min-height: calc(100vh + 122px);
-  background-image: url("./marble-gb6a6e2608_1920.jpg");
-  background-size: cover;
+  background-image: url("../resources/wood-table-home.png");
 }
 
 .paginationBttns {
