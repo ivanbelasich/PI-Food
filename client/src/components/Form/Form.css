@@ -87,9 +87,22 @@ select {
 
 .diets-buttons {
   padding: 0;
-  background: #853535;
+  background: #393939;
   color: white;
-  border-radius: 5px;
+  width: 50%;
+  text-align: center;
+}
+
+.diets-button-a {
+  display: flex;
+  margin: 4px;
+  justify-content: center;
+}
+
+.close-diets-button {
+  background-color: #993333;
+  color: white;
+  border: none;
 }
 
 @media (width > 800px) {
@@ -105,6 +118,9 @@ select {
 }
 
 @media (width < 700px) {
+  .form-container {
+    display: block;
+  }
   .form-container .button-form {
     width: 100%;
   }

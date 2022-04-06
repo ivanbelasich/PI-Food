@@ -45,7 +45,6 @@ export const Form = () => {
       }));
       setErrors(Validate({ ...data, [e.target.name]: e.target.value }));
     } else {
-      /*   setErrors(Validate({ [e.target.name]: [...data.diets, e.target.value] })); */
       setData((data) => ({
         ...data,
         [e.target.id]: e.target.value,
@@ -58,7 +57,7 @@ export const Form = () => {
     e.preventDefault();
     try {
       if (window.confirm("Desea agregar receta?") === true) {
-        const datita = await axios.post("http://localhost:3001/recipe", {
+        const dataDB = await axios.post("http://localhost:3001/recipe", {
           title: data.title,
           dishTypes: data.dishTypes,
           image: data.image,
@@ -69,15 +68,16 @@ export const Form = () => {
           diets: data.diets,
         });
         e.target.reset();
-        return datita;
-      } else preventD();
+        return dataDB;
+      } else e.preventDefault();
     } catch (error) {
       console.log(error);
     }
   }
 
-  function preventD(e) {
-    e.preventDefault();
+  function filterDiet(i) {
+    let actualizado = data.diets.filter((el) => data.diets[i] !== el);
+    setData((data) => ({ ...data, diets: actualizado }));
   }
 
   return (
@@ -148,9 +148,13 @@ export const Form = () => {
         {errors.diets && <div className="errors-message">{errors.diets}</div>}
       </p>
       <div className="diets-buttons-container">
-        {data.diets.map((el) => (
-          <button className="diets-buttons">{el}</button>
-        ))}
+        {data.diets &&
+          data.diets.map((el, i) => (
+            <div className="diets-button-a">
+              <div className="diets-buttons">{el}</div>
+              <button className="close-diets-button" onClick={() => filterDiet(i)}>X</button>
+            </div>
+          ))}
       </div>
       <p className="block">
         <label htmlFor="summary">Summary</label>
