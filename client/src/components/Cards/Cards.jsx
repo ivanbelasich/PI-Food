@@ -30,7 +30,7 @@ export default function Cards() {
           key={el.id}
           title={el.title}
           image={el.image}
-          diets={el.diets}
+          diet={el.diet}
           id={el.id}
           score={el.score}
         />

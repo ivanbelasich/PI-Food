@@ -31,7 +31,10 @@ module.exports = (sequelize) => {
     },
     image: {
       type: DataTypes.STRING,
-      defaultValue: "https://assets.unileversolutions.com/recipes-v2/37805.jpg"
+      defaultValue: "https://assets.unileversolutions.com/recipes-v2/37805.jpg",
+    },
+    diet: {
+      type: DataTypes.ARRAY(DataTypes.TEXT),
     },
   });
 };
