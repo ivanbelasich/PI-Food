@@ -22,7 +22,7 @@ export const Detail = () => {
           <img className="detail-image" src={recipeDetail.image} alt="img" />
           <div className="detail-card">
             <div className="detail-title">Diets</div>
-            <div className="detail-data">{recipeDetail.diet + ``}</div>
+            <div className="detail-data">{(recipeDetail.diet + ` `).replace(/,/g,", ")}</div>
           </div>
           <div className="detail-card">
             <div className="detail-title">Dish types</div>

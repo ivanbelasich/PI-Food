@@ -75,7 +75,7 @@ const getRecipesByName = async (req, res) => {
             title: el.title,
             diet: el.diet || el.diets.map((el) => el.title),
             score: el.spoonacularScore,
-            instructons: el.instructions,
+            instructions: el.instructions,
             id: el.id,
           };
         });
