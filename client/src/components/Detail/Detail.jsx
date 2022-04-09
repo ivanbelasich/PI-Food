@@ -18,8 +18,8 @@ export const Detail = () => {
     <>
       {recipeDetail ? (
         <div className="detail-container">
-            <div className="detail-principal-title">{recipeDetail.title}</div>
-            <img className="detail-image" src={recipeDetail.image} alt="img" />
+          <div className="detail-principal-title">{recipeDetail.title}</div>
+          <img className="detail-image" src={recipeDetail.image} alt="img" />
           <div className="detail-card">
             <div className="detail-title">Diets</div>
             <div className="detail-data">{recipeDetail.diet + ``}</div>
@@ -28,7 +28,7 @@ export const Detail = () => {
             <div className="detail-title">Dish types</div>
             <div className="detail-data">{recipeDetail.dishTypes}</div>
           </div>
-        
+
           <div className="detail-card">
             <div className="detail-title">Score</div>
             <div className="detail-data">{recipeDetail.score}</div>
@@ -43,7 +43,9 @@ export const Detail = () => {
           </div>
           <div className="detail-card">
             <div className="detail-title">Instructions</div>
-            <div className="detail-data">{recipeDetail.instructions}</div>
+            <div className="detail-data">
+              {recipeDetail.instructions.replace(/\.,/g, ". ")}
+            </div>
           </div>
         </div>
       ) : (

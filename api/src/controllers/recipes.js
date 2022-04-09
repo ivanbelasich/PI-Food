@@ -6,7 +6,7 @@ const {
   BASE_URL_DETAILED,
   DETAIL_URL,
 } = require("../resources/index");
-const { API_KEY3 } = process.env;
+const { API_KEY } = process.env;
 require("dotenv").config();
 
 const getRecipesByName = async (req, res) => {
@@ -43,14 +43,14 @@ const getRecipesByName = async (req, res) => {
       /*  ); */
       return res.json(dataNameFilt);
     } else {
-     /*   const dataApi = await axios.get(
-        `${BASE_URL}?apiKey=${API_KEY3}${BASE_URL_DETAILED}&number=100`
+      /*  const dataApi = await axios.get(
+        `${BASE_URL}?apiKey=${API_KEY}${BASE_URL_DETAILED}&number=100`
       ); */
       const dataDB = await Recipe.findAll({
         include: [Diet],
       });
       dateFilt =
-      /*   dataApi.data.results
+        /*  dataApi.data.results
         .map((el) => {
           return {
             image: el.image,
@@ -60,9 +60,12 @@ const getRecipesByName = async (req, res) => {
             dishTypes: el.dishTypes,
             summary: el.summary && el.summary.replace(/<[^>]+>/g, ""),
             instructions:
-              el.instructions && el.instructions.replace(/<[^>]+>/g, ""),
-            diets: el.diets[0].split(", "),
-                     id: el.id,
+            
+              el.analyzedInstructions
+                .map((el) => el.steps.map(el => el.step)).toString()
+              ,
+            diets: el.diets ,
+        
           };
         })
         .concat( */
@@ -70,12 +73,13 @@ const getRecipesByName = async (req, res) => {
           return {
             image: el.image,
             title: el.title,
-            diet: el.diet || el.diets.map(el => el.title),
+            diet: el.diet || el.diets.map((el) => el.title),
             score: el.spoonacularScore,
+            instructons: el.instructions,
             id: el.id,
           };
         });
-      /*   ); */
+      /*    ); */
       return res.json(dateFilt);
     }
   } catch {
@@ -93,7 +97,7 @@ const getRecipeDetail = async (req, res) => {
       image: detailDB.image,
       title: detailDB.title,
       dishTypes: detailDB.dishTypes,
-      diet: detailDB.diet || detailDB.diets.map(el => el.title),
+      diet: detailDB.diet || detailDB.diets.map((el) => el.title),
       summary: detailDB.summary,
       score: detailDB.spoonacularScore,
       healthScore: detailDB.healthScore,
