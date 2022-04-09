@@ -37,11 +37,11 @@ export const Detail = () => {
             <div className="detail-title">Health score</div>
             <div className="detail-data">{recipeDetail.healthScore}</div>
           </div>
-          <div className="detail-card">
+          <div className="detail-instructions">
             <div className="detail-title">Summary</div>
             <div className="detail-data">{recipeDetail.summary}</div>
           </div>
-          <div className="detail-card">
+          <div className="detail-instructions">
             <div className="detail-title">Instructions</div>
             <div className="detail-data">
               {recipeDetail.instructions.replace(/\.,/g, ". ")}

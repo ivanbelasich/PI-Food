@@ -10,6 +10,7 @@
 .body-filterbar {
   display: flex;
   margin: 10px;
+  
 }
 
 .filter-button {
@@ -29,7 +30,7 @@
 .filter-button:hover {
   background-color: #a8a8a891;
   color: black;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 .filter-button-reset {
@@ -54,6 +55,7 @@
 
 .form-filter {
   display: flex;
+  
 }
 
 .select-filter {
@@ -62,20 +64,63 @@
   cursor: pointer;
   box-shadow: 1px 2px 3px 0px #0000008a;
   border-radius: 3px;
+  
 }
 
 .order-filter-body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  
 }
 
-@media (max-width: 793px) {
+.mobile-button {
+  display: none;
+}
+
+.cerrado  {
+  display: flex;
+  align-items: center;
+  
+}
+
+@media (width < 918px) {
   .order-filter-body {
     display: grid;
+    justify-items: center;
+
   }
+
+  .mobile-button {
+    width: 48px;
+    height: 42px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #0d0d0dbf;
+    margin: 5px;
+    padding-top: 5px;
+    display: inline;
+    
+  }
+
   .general-filter {
     display: grid;
     justify-content: center;
+    align-items: center;
+    
+  }
+
+  .searchbar-filter {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .cerrado  {
+    top: -100%;
+    transition: all .5s;
+    position: fixed;
+  
   }
 }

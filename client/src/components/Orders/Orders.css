@@ -1,4 +1,14 @@
 .body-orders {
   display: flex;
+  justify-content: center;
 }
 
+@media (width < 918px) {
+  .body-orders {
+    display: grid;
+  }
+  .body-orders .filter-button {
+    margin: 4px;
+    width: 80vw;  
+  }
+}

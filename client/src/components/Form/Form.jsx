@@ -212,7 +212,7 @@ export const Form = () => {
           }
         >
           {" "}
-          Crear
+          Create
         </button>
       </p>
     </form>
