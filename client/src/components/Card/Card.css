@@ -11,7 +11,7 @@
   text-align: center;
   min-height: 330px;
   width: 250px;
-  max-height: 350px;
+    max-height: 365px;
 }
 
 .card-conteiner:hover {
@@ -28,6 +28,17 @@
 .card-title {
   font-size: 15px;
   font-weight: 600;
+  height: 65px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-diets {
+  min-height: 38px;
+  display: grid;
+  align-content: center;
+  justify-content: center;
 }
 
 .navlink-card {
@@ -38,4 +49,5 @@
 .hr-card {
   border: 1px solid #a84242d9;
   width: 85%;
+  margin-top: 0;
 }

@@ -6,18 +6,16 @@ export default function Card({ id, title, image, diet }) {
   return (
     <div className="card-conteiner">
       <NavLink className="navlink-card" to={`/detail/${id}`}>
-        <div>
           <img
             className="card-image"
             src={image}
             alt={<img src={`trortilla.jpg`} />}
           />
-        </div>
-        <div className="card-text">
+{/*         <div className="card-text"> */}
           <div className="card-title">{title}</div>
           <hr className="hr-card" />
           <div className="card-diets">{`${diet}`}</div>
-        </div>
+    {/*     </div> */}
       </NavLink>
     </div>
   );
