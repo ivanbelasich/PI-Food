@@ -56,29 +56,29 @@ export default function rootReducer(state = initialState, { type, payload }) {
       };
     }
     case ORDERBYAZ:
-      var sortedPriceAsc;
+      let sortedTitleAsc;
       if (state.recipes) {
-        sortedPriceAsc = state.recipes.sort((a, b) =>
+        sortedTitleAsc = state.recipes.sort((a, b) =>
           a.title > b.title ? 1 : -1
         );
       }
       return {
         ...state,
-        recipes: [...sortedPriceAsc],
+        recipes: [...sortedTitleAsc],
       };
     case ORDERBYZA:
-      var sortedPriceDesc;
+      let sortedTitleDesc;
       if (state.recipes) {
-        sortedPriceDesc = state.recipes.sort((a, b) =>
-          a.title < b.title ? 1 : -1
+        sortedTitleDesc = state.recipes.sort((a, b) =>
+          a.title < b.title ? 1 : 0
         );
       }
       return {
         ...state,
-        recipes: [...sortedPriceDesc],
+        recipes: [...sortedTitleDesc],
       };
     case ORDERBYSCORE:
-      var sortedScore;
+      let sortedScore;
       if (state.recipes) {
         sortedScore = state.recipes.sort((a, b) =>
           a.score <= b.score ? 1 : -1
@@ -89,7 +89,7 @@ export default function rootReducer(state = initialState, { type, payload }) {
         recipes: [...sortedScore],
       };
     case ORDERBYSCOREDESC:
-      var sortedScoreAsc;
+      let sortedScoreAsc;
       if (state.recipes) {
         sortedScoreAsc = state.recipes.sort((a, b) =>
           a.score >= b.score ? 1 : -1

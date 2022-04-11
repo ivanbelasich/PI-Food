@@ -9,12 +9,12 @@ export default function Card({ id, title, image, diet }) {
           <img
             className="card-image"
             src={image}
-            alt={<img src={`trortilla.jpg`} />}
+            alt="img not found"
           />
 {/*         <div className="card-text"> */}
           <div className="card-title">{title}</div>
           <hr className="hr-card" />
-          <div className="card-diets">{`${diet}`}</div>
+          <div className="card-diets">{`${diet} `.replace(/,/g,", ")}</div>
     {/*     </div> */}
       </NavLink>
     </div>

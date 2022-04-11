@@ -10,6 +10,8 @@ import "./Cards.css";
 export default function Cards() {
   const dispatch = useDispatch();
 
+  const ancho = window.innerWidth;
+
   useEffect(() => {
     dispatch(getRecipes());
   }, [dispatch]);
@@ -19,7 +21,7 @@ export default function Cards() {
   const [pageNumber, setPageNumber] = React.useState(0);
 
   const currentPosts = recipes.slice(0, 130);
-  const recipesPerPage = 10;
+  const recipesPerPage = ancho < 1367 ? 8 : 10;
   const pagesVisited = pageNumber * recipesPerPage;
 
   const displayRecipes = currentPosts
@@ -41,9 +43,9 @@ export default function Cards() {
 
   const changePage = ({ selected }) => {
     setPageNumber(selected);
+    console.log(selected, "selected");
   };
 
-  const ancho = window.innerWidth;
   return (
     <>
       <div className="cards-container">
@@ -61,8 +63,8 @@ export default function Cards() {
         activeClassName={"paginationActive"}
         pageLinkClassName={"pageLinkClassName"}
         eventListener={window.scroll(0, 0)}
-        marginPagesDisplayed={ancho < 600 ? 0 : 5}
-        pageRangeDisplayed={ancho < 600 ? 0 : 5}
+        marginPagesDisplayed={ancho < 600 ? 0 : 4}
+        pageRangeDisplayed={ancho < 600 ? 0 : 3}
       />
     </>
   );

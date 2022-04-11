@@ -28,10 +28,12 @@
   font-size: 23px;
   text-align: center;
   text-transform: uppercase;
+  background-color: #853535;
 }
 
 .detail-data {
   text-align: center;
+  padding: 1em;
 }
 
 .detail-card {

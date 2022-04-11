@@ -26,7 +26,7 @@ export const Detail = () => {
           </div>
           <div className="detail-card">
             <div className="detail-title">Dish types</div>
-            <div className="detail-data">{recipeDetail.dishTypes}</div>
+            <div className="detail-data">{(recipeDetail.dishTypes + "").replace(/,/g,", ")}</div>
           </div>
 
           <div className="detail-card">

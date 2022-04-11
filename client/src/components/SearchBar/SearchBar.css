@@ -11,15 +11,6 @@
 }
 
 .search-button {
-  /* width: 0px;
-  height: 0px;
-  background: white;
-  color: #853535;
-  top: -25px;
-  position: relative;
-  left: 232px;
-  cursor: pointer;
-  font-size: 15px; */
   background: none;
   color: #853535;
   top: -25px;
@@ -33,13 +24,14 @@
   left: -30px;
 }
 
-@media (max-width: 799px) {
+@media (max-width: 917px) {
   .search-button {
     display: none;
   }
-  .searchbar-body {
+  .searchbar-body input{
     margin: 10px;
     justify-content: center;
     display: flex;
+    width: auto;
   }
 }

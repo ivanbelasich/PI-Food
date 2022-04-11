@@ -1,0 +1,15 @@
+.no-recipes-container {
+  height: 20em;
+  width: 40em;
+  margin: 1em;
+  padding: 1em;
+  background-color: rgba(245, 245, 245, 0.603);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  font-weight: 600;
+  flex-direction: column;
+  text-align: center;
+  box-shadow: 3px 3px 5px 1px #1c1a1a;
+}
