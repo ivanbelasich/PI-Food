@@ -1,6 +1,6 @@
 .back-button {
   width: 8em;
-  height: 3em;
+  height: 2.5em;
   border: none;
   border-radius: 3px;
   display: flex;
@@ -18,4 +18,14 @@
   display: flex;
   justify-content: end; 
   margin-right: 4em;
+}
+
+@media (width < 900px){
+  .back-button-container {
+    justify-content: center;
+    margin: 0;
+  }
+  .back-button {
+    margin: 0;
+  }
 }

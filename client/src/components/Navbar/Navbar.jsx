@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { MdFoodBank } from "react-icons/md";
-import { resetSearch } from "../../redux/actions/index";
+import { getRecipes, resetSearch } from "../../redux/actions/index";
 import { useDispatch } from "react-redux";
 import "./Navbar.css";
 
@@ -8,6 +8,7 @@ export default function Navbar() {
   const dispatch = useDispatch();
   function handleClick() {
     dispatch(resetSearch(0));
+    dispatch(getRecipes());
   }
 
   return (

@@ -65,7 +65,10 @@ export const FilterBar = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch(filterByDiets(values.diets));
+    values.diets[0] &&
+      values.diets[0] !== "[object Object]" &&
+      dispatch(filterByDiets(values.diets));
+    console.log(values.diets[0], "values.diets");
     handleClick();
   }
 
