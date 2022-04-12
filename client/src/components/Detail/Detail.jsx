@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getRecipesDetail, resetDetail } from "../../redux/actions";
+import BackButton from "../Back/BackButton";
 import "./Detail.css";
 
 export const Detail = () => {
@@ -16,17 +17,25 @@ export const Detail = () => {
 
   return (
     <>
+      <div className="back-button-container">
+        <BackButton />
+      </div>
       {recipeDetail ? (
         <div className="detail-container">
           <div className="detail-principal-title">{recipeDetail.title}</div>
           <img className="detail-image" src={recipeDetail.image} alt="img" />
+
           <div className="detail-card">
             <div className="detail-title">Diets</div>
-            <div className="detail-data">{(recipeDetail.diet + ` `).replace(/,/g,", ")}</div>
+            <div className="detail-data">
+              {(recipeDetail.diet + ` `).replace(/,/g, ", ")}
+            </div>
           </div>
           <div className="detail-card">
             <div className="detail-title">Dish types</div>
-            <div className="detail-data">{(recipeDetail.dishTypes + "").replace(/,/g,", ")}</div>
+            <div className="detail-data">
+              {(recipeDetail.dishTypes + "").replace(/,/g, ", ")}
+            </div>
           </div>
 
           <div className="detail-card">

@@ -79,8 +79,13 @@ export function resetDetail() {
   return { type: RESET_DETAIL };
 }
 
-export function resetSearch() {
-  return { type: RESET_SEARCH };
+export function resetSearch(page) {
+  return (dispatch) => {
+    return dispatch({
+      type: RESET_SEARCH,
+      payload: page,
+    });
+  };
 }
 
 /////////////       DIETS       //////////////

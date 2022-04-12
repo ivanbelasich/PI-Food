@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getRecipes } from "../../redux/actions/index";
+import { getRecipes, resetSearch } from "../../redux/actions/index";
 import { NoRecipes } from "../NoRecipes/NoRecipes";
 import ReactPaginate from "react-paginate";
 import Card from "../Card/Card";
@@ -18,11 +18,11 @@ export default function Cards() {
 
   const recipes = useSelector((state) => state.recipes);
 
-  const [pageNumber, setPageNumber] = React.useState(0);
+  const page = useSelector((state) => state.page);
 
   const currentPosts = recipes.slice(0, 130);
   const recipesPerPage = ancho < 1367 ? 8 : 10;
-  const pagesVisited = pageNumber * recipesPerPage;
+  const pagesVisited = page * recipesPerPage;
 
   const displayRecipes = currentPosts
     .slice(pagesVisited, pagesVisited + recipesPerPage)
@@ -42,14 +42,17 @@ export default function Cards() {
   var pageCount = Math.ceil(currentPosts.length / recipesPerPage);
 
   const changePage = ({ selected }) => {
-    setPageNumber(selected);
-    console.log(selected, "selected");
+    dispatch(resetSearch(selected));
   };
 
   return (
     <>
       <div className="cards-container">
-        {recipes.length > 0 ? displayRecipes : <NoRecipes />}
+        {recipes.length > 0 ? (
+          displayRecipes
+        ) : (
+          <NoRecipes message={`The recipe`} />
+        )}
       </div>
       <ReactPaginate
         previousLabel={"<Prev"}

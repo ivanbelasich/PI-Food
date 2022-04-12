@@ -13,6 +13,7 @@ import { Orders } from "../Orders/Orders";
 import SearchBar from "../SearchBar/SearchBar";
 import { BsFillFilterSquareFill } from "react-icons/bs";
 import "./FilterBar.css";
+import { NoRecipes } from "../NoRecipes/NoRecipes";
 
 export const FilterBar = () => {
   const dispatch = useDispatch();
@@ -84,10 +85,10 @@ export const FilterBar = () => {
       <div className="searchbar-filter">
         <SearchBar />
         <button onClick={handleClick} open={open} className="mobile-button">
-       <BsFillFilterSquareFill size="2.5em" />
-      </button>
+          <BsFillFilterSquareFill size="2.5em" />
+        </button>
       </div>
-    
+
       <div className={open === true ? "order-filter-body" : "cerrado"}>
         <Orders
           orderAZ={orderAZ}

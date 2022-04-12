@@ -16,6 +16,7 @@ const initialState = {
   recipes: [],
   recipeDetail: null,
   diets: [],
+  page: 0,
 };
 
 export default function rootReducer(state = initialState, { type, payload }) {
@@ -46,7 +47,7 @@ export default function rootReducer(state = initialState, { type, payload }) {
     case RESET_SEARCH: {
       return {
         ...state,
-        recipes: payload,
+        page: payload,
       };
     }
     case GET_DIETS: {
@@ -101,7 +102,9 @@ export default function rootReducer(state = initialState, { type, payload }) {
       };
     case FILTERBYDIETS:
       const datita = state.recipes.filter(
-        (el) => (el.diets && el.diets.includes(payload[0]) === true) || (el.diet && el.diet.includes(payload[0]) === true)
+        (el) =>
+          (el.diets && el.diets.includes(payload[0]) === true) ||
+          (el.diet && el.diet.includes(payload[0]) === true)
       );
       return {
         ...state,

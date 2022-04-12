@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getRecipes, getRecipesByName } from "../../redux/actions";
+import { getRecipes, getRecipesByName, resetSearch } from "../../redux/actions";
 import { BiSearchAlt2 } from "react-icons/bi";
 import "./SearchBar.css";
 
-export default function SearchBar({setPageNumber}) {
+export default function SearchBar() {
   const [data, setData] = useState();
 
   function handleChange(e) {
@@ -17,10 +17,10 @@ export default function SearchBar({setPageNumber}) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (data) {
-      setPageNumber(0)
+      dispatch(resetSearch(0));
       dispatch(getRecipesByName(data));
     } else {
-      dispatch(getRecipes())
+      dispatch(getRecipes());
     }
   };
 
