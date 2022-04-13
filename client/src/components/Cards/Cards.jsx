@@ -53,7 +53,7 @@ export default function Cards() {
         {recipes.length > 0 ? (
           displayRecipes
         ) : (
-          <NoRecipes message={`The recipe you are looking for isn't in our records, try another one!`} />
+          <NoRecipes message={`The recipe you are looking for isn't in our records, press Reset button or try another one!`} />
         )}
       </div>
       <ReactPaginate
