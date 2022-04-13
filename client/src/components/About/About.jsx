@@ -5,7 +5,15 @@ import {
   DiCss3,
   DiHtml5,
 } from "react-icons/di";
-import { SiRedux, SiSequelize, SiExpress, SiNodedotjs } from "react-icons/si";
+import {
+  SiRedux,
+  SiSequelize,
+  SiExpress,
+  SiNodedotjs,
+  SiLinkedin,
+  SiGithub,
+  SiGmail,
+} from "react-icons/si";
 import "./About.css";
 
 export const About = () => {
@@ -18,42 +26,70 @@ export const About = () => {
           technologies:
           <div className="tech-list">
             <li>
-              <DiReact />
+              <DiReact className="react-icon" />
               React
             </li>
             <li>
-              <SiRedux /> Redux
+              <SiRedux className="react-icon" /> Redux
             </li>
             <li>
               {" "}
-              <DiJavascript1 /> Javascript
+              <DiJavascript1 className="react-icon" /> Javascript
             </li>
             <li>
-              <SiSequelize />
+              <SiSequelize className="react-icon" />
               Sequelize
             </li>
             <li>
-              <DiPostgresql />
+              <DiPostgresql className="react-icon" />
               PostgreSQL
             </li>
             <li>
-              <DiCss3 />
+              <DiCss3 className="react-icon" />
               Css
             </li>
             <li>
-              <DiHtml5 />
+              <DiHtml5 className="react-icon" />
               Html
             </li>
             <li>
-              <SiExpress />
+              <SiExpress className="react-icon" />
               Express
             </li>
             <li>
-              <SiNodedotjs />
+              <SiNodedotjs className="react-icon" />
               Node.js
             </li>
           </div>
           For more information, please contact me with the following pages:
+          <div className="about-pages">
+            <li>
+              <a
+                href="https://www.linkedin.com/in/ivanbelasich/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <SiLinkedin className="react-icon" />
+                Linkedin
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/ivanbelasich"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <SiGithub className="react-icon" />
+                Github
+              </a>
+            </li>
+            <li>
+              <a href="mailto:ivanbelasich@gmail.com">
+                <SiGmail className="react-icon" />
+                Gmail
+              </a>
+            </li>
+          </div>
         </div>
       </div>
     </div>

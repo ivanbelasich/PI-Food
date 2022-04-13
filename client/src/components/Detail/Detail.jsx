@@ -13,6 +13,7 @@ export const Detail = () => {
   useEffect(() => {
     dispatch(getRecipesDetail(id));
     return () => dispatch(resetDetail());
+    
   }, [id, dispatch]);
 
   return (

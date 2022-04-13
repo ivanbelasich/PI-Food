@@ -41,9 +41,11 @@ export default function Cards() {
 
   var pageCount = Math.ceil(currentPosts.length / recipesPerPage);
 
-  const changePage = ({ selected }) => {
+  const changePage = ({selected}) => {
     dispatch(resetSearch(selected));
+    console.log(selected, "selected")
   };
+
 
   return (
     <>
@@ -55,6 +57,7 @@ export default function Cards() {
         )}
       </div>
       <ReactPaginate
+      forcePage={page}
         previousLabel={"<Prev"}
         nextLabel={"Next>"}
         pageCount={pageCount}

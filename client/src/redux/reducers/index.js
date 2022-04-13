@@ -16,7 +16,7 @@ const initialState = {
   recipes: [],
   recipeDetail: null,
   diets: [],
-  page: 0,
+  page: null,
 };
 
 export default function rootReducer(state = initialState, { type, payload }) {

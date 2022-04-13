@@ -8,7 +8,9 @@ export default function BackButton() {
   }
   return (
     <div>
-      <button className="back-button" onClick={handleClick}>Back</button>
+      <button className="back-button" onClick={handleClick}>
+        Back
+      </button>
     </div>
   );
 }

@@ -3,6 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #aaa;
 }
 
 .about-card {
@@ -26,4 +27,56 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 1em;
+}
+
+.tech-list li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2em;
+}
+
+.react-icon {
+  width: 3em;
+  height: 2em;
+  color: #ffcc54;
+}
+
+.about-pages {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 1em;
+  list-style: none;
+}
+
+.about-pages li a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2em;
+  color: white;
+  text-decoration: none;
+}
+
+@media (width < 600px) {
+  .about-container {
+    height: 100vh;
+  }
+  /*  .about-text {
+    width: 100vw;
+  } */
+  .about-card {
+    height: auto;
+  }
+  .tech-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .tech-list li a{
+    justify-content: initial;
+  }
+  .about-pages {
+   /*  display: grid;
+    grid-template-columns: 1fr; */
+  }
 }
