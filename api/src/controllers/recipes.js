@@ -35,7 +35,7 @@ const getRecipesByName = async (req, res) => {
           return {
             image: el.image,
             title: el.title,
-            diet: el.diets.map((el) => el.title),
+            diet:  el.diet || el.diets.map((el) => el.title),
             id: el.id,
             score: el.spoonacularScore,
           };

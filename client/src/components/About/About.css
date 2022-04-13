@@ -7,8 +7,8 @@
 }
 
 .about-card {
-  width: 50em;
-  height: 20em;
+  width: 55em;
+  height: 25em;
   background-color: rgb(83, 83, 83);
   color: white;
   text-align: center;
@@ -49,13 +49,25 @@
   list-style: none;
 }
 
-.about-pages li a{
+.about-pages li a {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0.2em;
   color: white;
   text-decoration: none;
+}
+
+.about-pages li a:hover {
+  color: black;
+}
+
+.social-links-icons {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 3px;
+  margin-right: 8px;
 }
 
 @media (width < 600px) {
@@ -67,16 +79,21 @@
   } */
   .about-card {
     height: auto;
+    width: 100%;
+    padding: 2em;
+  }
+  .about-text {
+    padding: 0;
   }
   .tech-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  .tech-list li a{
+  .tech-list li a {
     justify-content: initial;
   }
   .about-pages {
-   /*  display: grid;
+    /*  display: grid;
     grid-template-columns: 1fr; */
   }
 }

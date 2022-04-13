@@ -24,6 +24,7 @@ export const About = () => {
           This Single-Page Application was developed as an individual evaluation
           for the "Soy Henry" Bootcamp. It was created with the following
           technologies:
+          <hr/>
           <div className="tech-list">
             <li>
               <DiReact className="react-icon" />
@@ -61,15 +62,21 @@ export const About = () => {
               Node.js
             </li>
           </div>
-          For more information, please contact me with the following pages:
+          <hr/>
+          <div>
+          For more information, contact me with through following pages:
+          </div>
+       
+     
           <div className="about-pages">
+            
             <li>
               <a
                 href="https://www.linkedin.com/in/ivanbelasich/"
                 target="_blank"
                 rel="noreferrer"
               >
-                <SiLinkedin className="react-icon" />
+                <SiLinkedin className="social-links-icons" color="#0A66C2" />
                 Linkedin
               </a>
             </li>
@@ -79,13 +86,13 @@ export const About = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <SiGithub className="react-icon" />
+                <SiGithub className="social-links-icons" color="black" />
                 Github
               </a>
             </li>
             <li>
               <a href="mailto:ivanbelasich@gmail.com">
-                <SiGmail className="react-icon" />
+                <SiGmail className="social-links-icons" color="#853535" />
                 Gmail
               </a>
             </li>

@@ -7,7 +7,6 @@ export const Footer = () => {
       <NavLink to="/about" className="navlink-footer">
         About
       </NavLink>
-      <div className="navlink-footer">Contact</div>
       <a
         href="https://github.com/ivanbelasich/PI-Food"
         className="navlink-footer"
