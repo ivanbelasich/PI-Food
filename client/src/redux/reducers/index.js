@@ -20,7 +20,7 @@ const initialState = {
 };
 
 export default function rootReducer(state = initialState, { type, payload }) {
-  // destructurin de type y payload
+  // destructuring de type y payload
   switch (type) {
     case GET_RECIPES:
       return {
@@ -71,7 +71,7 @@ export default function rootReducer(state = initialState, { type, payload }) {
       let sortedTitleDesc;
       if (state.recipes) {
         sortedTitleDesc = state.recipes.sort((a, b) =>
-          a.title < b.title ? 1 : 0
+          a.title < b.title ? 1 : -1
         );
       }
       return {

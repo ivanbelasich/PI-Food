@@ -41,11 +41,9 @@ export default function Cards() {
 
   var pageCount = Math.ceil(currentPosts.length / recipesPerPage);
 
-  const changePage = ({selected}) => {
+  const changePage = ({ selected }) => {
     dispatch(resetSearch(selected));
-    console.log(selected, "selected")
   };
-
 
   return (
     <>
@@ -53,11 +51,13 @@ export default function Cards() {
         {recipes.length > 0 ? (
           displayRecipes
         ) : (
-          <NoRecipes message={`The recipe you are looking for isn't in our records, press Reset button or try another one!`} />
+          <NoRecipes
+            message={`The recipe you are looking for isn't in our records, press Reset button or try another one!`}
+          />
         )}
       </div>
       <ReactPaginate
-      forcePage={page}
+        forcePage={page}
         previousLabel={"<Prev"}
         nextLabel={"Next>"}
         pageCount={pageCount}
