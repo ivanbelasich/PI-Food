@@ -81,9 +81,9 @@ export default function rootReducer(state = initialState, { type, payload }) {
     case ORDERBYSCORE:
       let sortedScore;
       if (state.recipes) {
-        sortedScore = state.recipes.sort((a, b) =>
-          a.score <= b.score ? 1 : -1
-        );
+        sortedScore = state.recipes.sort(function (a, b) {
+          return b.score - a.score;
+        });
       }
       return {
         ...state,
@@ -92,9 +92,9 @@ export default function rootReducer(state = initialState, { type, payload }) {
     case ORDERBYSCOREDESC:
       let sortedScoreAsc;
       if (state.recipes) {
-        sortedScoreAsc = state.recipes.sort((a, b) =>
-          a.score >= b.score ? 1 : -1
-        );
+        sortedScoreAsc = state.recipes.sort(function (a, b) {
+          return a.score - b.score;
+        });
       }
       return {
         ...state,

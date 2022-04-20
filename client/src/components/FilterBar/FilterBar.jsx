@@ -8,6 +8,7 @@ import {
   orderByScore,
   orderByScoreDesc,
   orderByZa,
+  resetSearch
 } from "../../redux/actions/index";
 import { Orders } from "../Orders/Orders";
 import SearchBar from "../SearchBar/SearchBar";
@@ -67,6 +68,7 @@ export const FilterBar = () => {
     values.diets[0] &&
       values.diets[0] !== "[object Object]" &&
       dispatch(filterByDiets(values.diets));
+      dispatch(resetSearch(0));
     handleClick();
   }
 
