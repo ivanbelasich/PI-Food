@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getDiets } from "../../redux/actions";
 import { dishTypesData } from "../../redux/constants";
 import Validate from "../ValidateForm/ValidateForm";
+import Modal from "../Modal/Modal";
 import "./Form.css";
 
 export const Form = () => {
@@ -18,6 +19,22 @@ export const Form = () => {
     instructions: "",
     diets: [],
   });
+
+  ///////////            MODAL            ///////////
+
+  const [modal, setModal] = React.useState(false);
+
+  const toggleModal = () => {
+    setModal(!modal);
+  };
+
+  if (modal) {
+    document.body.classList.add("active-modal");
+  } else {
+    document.body.classList.remove("active-modal");
+  }
+
+  /////////////////////////////////////////////////
 
   const [errors, setErrors] = React.useState({});
 
@@ -56,20 +73,18 @@ export const Form = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      if (window.confirm("Desea agregar receta?") === true) {
-        const dataDB = await axios.post("http://localhost:3001/recipe", {
-          title: data.title,
-          dishTypes: data.dishTypes,
-          image: data.image,
-          summary: data.summary,
-          spoonacularScore: data.score,
-          healthScore: data.healthScore,
-          instructions: data.instructions,
-          diets: data.diets,
-        });
-        e.target.reset();
-        return dataDB;
-      } else e.preventDefault();
+      const dataDB = await axios.post("http://localhost:3001/recipe", {
+        title: data.title,
+        dishTypes: data.dishTypes,
+        image: data.image,
+        summary: data.summary,
+        spoonacularScore: data.score,
+        healthScore: data.healthScore,
+        instructions: data.instructions,
+        diets: data.diets,
+      });
+      e.target.reset();
+      return dataDB;
     } catch (error) {
       console.log(error);
     }
@@ -81,140 +96,150 @@ export const Form = () => {
   }
 
   return (
-    <form className="form-container" onSubmit={handleSubmit}>
-      <p>
-        <label htmlFor="title">Title</label>
-        <input
-          onChange={(e) => handleChange(e)}
-          id="title"
-          placeholder="Title"
-          required
-          className={errors.title}
-        />
-        {errors.title && <div className="errors-message">{errors.title}</div>}
-      </p>
-      <p>
-        <label htmlFor="image">Image</label>
-        <input
-          onChange={(e) => handleChange(e)}
-          id="image"
-          placeholder="Insert a link"
-          required
-        ></input>
-        {errors.image && <div className="errors-message">{errors.image}</div>}
-      </p>
-      <p>
-        <label htmlFor="score">Score</label>
-        <input
-          type="number"
-          onChange={(e) => handleChange(e)}
-          id="score"
-          placeholder="From 0 to 100"
-          required
-        ></input>
-        {errors.score && <div className="errors-message">{errors.score}</div>}
-      </p>
-      <p>
-        <label htmlFor="healthScore">Health Score</label>
-        <input
-          type="number"
-          onChange={(e) => handleChange(e)}
-          id="healthScore"
-          placeholder="From 0 to 100"
-          required
-        ></input>
-        {errors.healthScore && (
-          <div className="errors-message">{errors.healthScore}</div>
-        )}
-      </p>
-      <p>
-        <label htmlFor="dishTypes">Dishtypes</label>
-        <select onChange={(e) => handleChange(e)} id="dishTypes" required>
-          <option value="">Select a dish type</option>
-          {dishTypesData.map((el) => (
-            <option key={el}>{el}</option>
-          ))}
-        </select>
-        {errors.dishTypes && (
-          <div className="errors-message">{errors.dishTypes}</div>
-        )}
-      </p>
-      <p>
-        <label htmlFor="diets">Diets</label>
-        <select onChange={(e) => handleChange(e)} id="diets" required>
-          <option>Select one or more diets</option>
-          {diets && diets.map((el) => <option key={el.id}>{el.title}</option>)}
-        </select>
-        {errors.diets && <div className="errors-message">{errors.diets}</div>}
-      </p>
-      <div className="diets-buttons-container">
-        {data.diets &&
-          data.diets.map((el, i) => (
-            <div className="diets-button-a">
-              <div className="diets-buttons">{el}</div>
-              <button className="close-diets-button" onClick={() => filterDiet(i)}>X</button>
-            </div>
-          ))}
-      </div>
-      <p className="block">
-        <label htmlFor="summary">Summary</label>
-        <textarea
-          rows="2"
-          type="text"
-          onChange={(e) => handleChange(e)}
-          id="summary"
-          placeholder="A brief summary"
-          required
-        ></textarea>
-        {errors.summary && (
-          <div className="errors-message">{errors.summary}</div>
-        )}
-      </p>
-      <p className="block">
-        <label htmlFor="instructions">Instructions</label>
-        <textarea
-          rows="3"
-          type="text"
-          onChange={(e) => handleChange(e)}
-          id="instructions"
-          placeholder="Step by step to create the dish"
-          required
-        ></textarea>
-        {errors.instructions && (
-          <div className="errors-message">{errors.instructions}</div>
-        )}
-      </p>
-      <p className="block-button">
-        <button
-          className={
-            errors.title ||
-            errors.image ||
-            errors.score ||
-            errors.healthScore ||
-            errors.instructions ||
-            errors.diets ||
-            errors.summary ||
-            errors.dishTypes
-              ? "disabled"
-              : "button-form"
-          }
-          disabled={
-            errors.title ||
-            errors.image ||
-            errors.score ||
-            errors.healthScore ||
-            errors.instructions ||
-            errors.diets ||
-            errors.summary ||
-            errors.dishTypes
-              ? true
-              : false
-          }
-        >
-          {" "}
-          Create
-        </button>
-      </p>
-    </form>
+    <>
+      <form className="form-container" onSubmit={handleSubmit}>
+        <p>
+          <label htmlFor="title">Title</label>
+          <input
+            onChange={(e) => handleChange(e)}
+            id="title"
+            placeholder="Title"
+            required
+            className={errors.title}
+          />
+          {errors.title && <div className="errors-message">{errors.title}</div>}
+        </p>
+        <p>
+          <label htmlFor="image">Image</label>
+          <input
+            onChange={(e) => handleChange(e)}
+            id="image"
+            placeholder="Insert a link"
+            required
+          ></input>
+          {errors.image && <div className="errors-message">{errors.image}</div>}
+        </p>
+        <p>
+          <label htmlFor="score">Score</label>
+          <input
+            type="number"
+            onChange={(e) => handleChange(e)}
+            id="score"
+            placeholder="From 0 to 100"
+            required
+          ></input>
+          {errors.score && <div className="errors-message">{errors.score}</div>}
+        </p>
+        <p>
+          <label htmlFor="healthScore">Health Score</label>
+          <input
+            type="number"
+            onChange={(e) => handleChange(e)}
+            id="healthScore"
+            placeholder="From 0 to 100"
+            required
+          ></input>
+          {errors.healthScore && (
+            <div className="errors-message">{errors.healthScore}</div>
+          )}
+        </p>
+        <p>
+          <label htmlFor="dishTypes">Dishtypes</label>
+          <select onChange={(e) => handleChange(e)} id="dishTypes" required>
+            <option value="">Select a dish type</option>
+            {dishTypesData.map((el) => (
+              <option key={el}>{el}</option>
+            ))}
+          </select>
+          {errors.dishTypes && (
+            <div className="errors-message">{errors.dishTypes}</div>
+          )}
+        </p>
+        <p>
+          <label htmlFor="diets">Diets</label>
+          <select onChange={(e) => handleChange(e)} id="diets" required>
+            <option>Select one or more diets</option>
+            {diets &&
+              diets.map((el) => <option key={el.id}>{el.title}</option>)}
+          </select>
+          {errors.diets && <div className="errors-message">{errors.diets}</div>}
+        </p>
+        <div className="diets-buttons-container">
+          {data.diets &&
+            data.diets.map((el, i) => (
+              <div className="diets-button-a">
+                <div className="diets-buttons">{el}</div>
+                <button
+                  className="close-diets-button"
+                  onClick={() => filterDiet(i)}
+                >
+                  X
+                </button>
+              </div>
+            ))}
+        </div>
+        <p className="block">
+          <label htmlFor="summary">Summary</label>
+          <textarea
+            rows="2"
+            type="text"
+            onChange={(e) => handleChange(e)}
+            id="summary"
+            placeholder="A brief summary"
+            required
+          ></textarea>
+          {errors.summary && (
+            <div className="errors-message">{errors.summary}</div>
+          )}
+        </p>
+        <p className="block">
+          <label htmlFor="instructions">Instructions</label>
+          <textarea
+            rows="3"
+            type="text"
+            onChange={(e) => handleChange(e)}
+            id="instructions"
+            placeholder="Step by step to create the dish"
+            required
+          ></textarea>
+          {errors.instructions && (
+            <div className="errors-message">{errors.instructions}</div>
+          )}
+        </p>
+        <p className="block-button">
+          <button
+            onClick={toggleModal}
+            className={
+              errors.title ||
+              errors.image ||
+              errors.score ||
+              errors.healthScore ||
+              errors.instructions ||
+              errors.diets ||
+              errors.summary ||
+              errors.dishTypes
+                ? "disabled"
+                : "button-form"
+            }
+            disabled={
+              errors.title ||
+              errors.image ||
+              errors.score ||
+              errors.healthScore ||
+              errors.instructions ||
+              errors.diets ||
+              errors.summary ||
+              errors.dishTypes
+                ? true
+                : false
+            }
+          >
+            {" "}
+            Create
+          </button>
+        </p>
+        <Modal modal={modal} toggleModal={toggleModal} />
+      </form>
+    </>
   );
 };

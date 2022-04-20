@@ -89,8 +89,11 @@ select {
   padding: 0;
   background: #393939;
   color: white;
-  width: 50%;
+  width: 100%;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .diets-button-a {
@@ -103,6 +106,7 @@ select {
   background-color: #993333;
   color: white;
   border: none;
+  border-radius: 0 3px 3px 0px;
 }
 
 @media (width > 800px) {
@@ -114,7 +118,6 @@ select {
 @media (height < 800px) {
   .form-container {
     min-height: 904px;
-   
   }
 }
 

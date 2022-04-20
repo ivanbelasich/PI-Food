@@ -30,6 +30,7 @@ export default function SearchBar() {
         id="search"
         placeholder="Search recipe"
         onChange={(e) => handleChange(e)}
+        autoComplete="off"
       />
       <button type="submit" className="search-button">
         <BiSearchAlt2 />
