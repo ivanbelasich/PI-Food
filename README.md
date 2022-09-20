@@ -14,7 +14,6 @@
 - Afirmar y conectar los conceptos aprendidos en la carrera.
 - Aprender mejores prácticas.
 - Aprender y practicar el workflow de GIT.
-- Usar y practicar testing.
 
 
 ### SPA, que permite buscar recetas de comida desde una Api, filtrarlas, ordenarlas y cuenta con un formularo para crear tu propia receta en una base de datos local. Posee un diseño responsive, adaptado en resoluciones desde 1920x1080p, hasta resoluciones Mobile. Fue desarrollada con Javascript, React, Redux, Html y Css puro para el front, y Express, Node.js, Postgres y Sequelize para el back y base de datos.
