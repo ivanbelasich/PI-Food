@@ -17,7 +17,7 @@
 - Usar y practicar testing.
 
 
-## SPA, que permite buscar recetas de comida desde una Api, filtrarlas, ordenarlas y cuenta con un formularo para crear tu propia receta en una base de datos local. Posee un diseño responsive, adaptado en resoluciones desde 1920x1080p, hasta resoluciones Mobile. Fue desarrollada con Javascript, React, Redux, Html y Css puro para el front, y Express, Node.js, Postgres y Sequelize para el back y base de datos.
+### SPA, que permite buscar recetas de comida desde una Api, filtrarlas, ordenarlas y cuenta con un formularo para crear tu propia receta en una base de datos local. Posee un diseño responsive, adaptado en resoluciones desde 1920x1080p, hasta resoluciones Mobile. Fue desarrollada con Javascript, React, Redux, Html y Css puro para el front, y Express, Node.js, Postgres y Sequelize para el back y base de datos.
 
 ![image7(1)](https://user-images.githubusercontent.com/70997096/175757179-43d56309-0b2f-4e19-8914-a35ffabe69c6.png)
 
