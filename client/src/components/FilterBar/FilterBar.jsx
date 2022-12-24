@@ -8,7 +8,7 @@ import {
   orderByScore,
   orderByScoreDesc,
   orderByZa,
-  resetSearch
+  resetSearch,
 } from "../../redux/actions/index";
 import { Orders } from "../Orders/Orders";
 import SearchBar from "../SearchBar/SearchBar";
@@ -46,6 +46,8 @@ export const FilterBar = () => {
 
   const diets = useSelector((state) => state.diets);
 
+  console.log(diets, "dietas");
+
   useEffect(() => {
     dispatch(getDiets());
   }, [dispatch]);
@@ -68,7 +70,7 @@ export const FilterBar = () => {
     values.diets[0] &&
       values.diets[0] !== "[object Object]" &&
       dispatch(filterByDiets(values.diets));
-      dispatch(resetSearch(0));
+    dispatch(resetSearch(0));
     handleClick();
   }
 
@@ -107,9 +109,10 @@ export const FilterBar = () => {
               onChange={handleChange}
             >
               <option value={{ title: "a" }}>Filter by diet</option>
-              {diets.map((el) => (
-                <option key={el.id}>{el.title}</option>
-              ))}
+              {diets &&
+                diets.map((el, idx) =>
+                  el.title.map((dieta) => <option key={idx}>{dieta}</option>)
+                )}
             </select>
             <button className="filter-button">Filter</button>
           </form>

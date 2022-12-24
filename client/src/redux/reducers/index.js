@@ -101,11 +101,14 @@ export default function rootReducer(state = initialState, { type, payload }) {
         recipes: [...sortedScoreAsc],
       };
     case FILTERBYDIETS:
+      console.log(state.recipes, "state.recipes");
       const datita = state.recipes.filter(
         (el) =>
           (el.diets && el.diets.includes(payload[0]) === true) ||
           (el.diet && el.diet.includes(payload[0]) === true)
       );
+      console.log(datita, "esto es datita");
+
       return {
         ...state,
         recipes: [...datita],

@@ -38,7 +38,8 @@ export const Form = () => {
 
   const [errors, setErrors] = React.useState({});
 
-  const diets = useSelector((state) => state.diets);
+  const diets = useSelector((state) => state.diets[0]);
+  console.log(diets, "diets[0].title");
 
   const dispatch = useDispatch();
 
@@ -98,7 +99,7 @@ export const Form = () => {
   return (
     <>
       <form className="form-container" onSubmit={handleSubmit}>
-        <p>
+        <div>
           <label htmlFor="title">Title</label>
           <input
             onChange={(e) => handleChange(e)}
@@ -108,8 +109,8 @@ export const Form = () => {
             className={errors.title}
           />
           {errors.title && <div className="errors-message">{errors.title}</div>}
-        </p>
-        <p>
+        </div>
+        <div>
           <label htmlFor="image">Image</label>
           <input
             onChange={(e) => handleChange(e)}
@@ -118,8 +119,8 @@ export const Form = () => {
             required
           ></input>
           {errors.image && <div className="errors-message">{errors.image}</div>}
-        </p>
-        <p>
+        </div>
+        <div>
           <label htmlFor="score">Score</label>
           <input
             type="number"
@@ -129,8 +130,8 @@ export const Form = () => {
             required
           ></input>
           {errors.score && <div className="errors-message">{errors.score}</div>}
-        </p>
-        <p>
+        </div>
+        <div>
           <label htmlFor="healthScore">Health Score</label>
           <input
             type="number"
@@ -142,34 +143,35 @@ export const Form = () => {
           {errors.healthScore && (
             <div className="errors-message">{errors.healthScore}</div>
           )}
-        </p>
-        <p>
+        </div>
+        <div>
           <label htmlFor="dishTypes">Dishtypes</label>
           <select onChange={(e) => handleChange(e)} id="dishTypes" required>
             <option value="">Select a dish type</option>
-            {dishTypesData.map((el) => (
-              <option key={el}>{el}</option>
+            {dishTypesData.map((el, idx) => (
+              <option key={idx}>{el}</option>
             ))}
           </select>
           {errors.dishTypes && (
             <div className="errors-message">{errors.dishTypes}</div>
           )}
-        </p>
-        <p>
+        </div>
+        <div>
           <label htmlFor="diets">Diets</label>
           <select onChange={(e) => handleChange(e)} id="diets" required>
             <option>Select one or more diets</option>
             {diets &&
-              diets.map((el) => <option key={el.id}>{el.title}</option>)}
+              diets.title.map((el, idx) => <option key={idx}>{el}</option>)}
           </select>
           {errors.diets && <div className="errors-message">{errors.diets}</div>}
-        </p>
+        </div>
         <div className="diets-buttons-container">
           {data.diets &&
-            data.diets.map((el, i) => (
+            data.diets.map((el, i,idx) => (
               <div className="diets-button-a">
                 <div className="diets-buttons">{el}</div>
                 <button
+                  key={idx}
                   className="close-diets-button"
                   onClick={() => filterDiet(i)}
                 >

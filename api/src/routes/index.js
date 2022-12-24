@@ -15,7 +15,7 @@ const router = Router();
 
 // Crear en nuestra BD una receta
 router.post("/recipe", recipe.addRecipe);
-/* router.post("/recipe", recipe.addRecipes) */
+router.post("/recipes", recipe.addRecipes)
 
 // Obtener 9 recetas
 router.get("/recipes", recipes.getRecipesByName);
